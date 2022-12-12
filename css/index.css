@@ -1,1 +1,134 @@
 @charset 'utf-8';
+
+main {
+  /* overflow: hidden; */
+}
+
+.gnb {
+  display: none;
+}
+
+.elec_dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  z-index: 10;
+}
+
+img {
+  display: none;
+}
+
+.view {
+  /* border: 2px solid blue; */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg {
+  /* border: 1px solid green; */
+  width: 200vw;
+  height: 400vh;
+  /* background-color: aliceblue; */
+  position: relative;
+  /* 임시코드 */
+
+  /* transition: 0.7s 1s; */
+
+  /* sec1 */
+  /* transform: translate(0%, 0%); */
+
+  /* sec2 */
+  /* transform: translate(0%, -14.814%); line1 이동*/
+  /* transform: translate(-30.885%, -14.814%); line2 이동*/
+  /* transform: translate(-50%, -25%); profile 출력*/
+  /* transform: translate(-30.885%, -14.814%); line3 이동 준비*/
+
+  /* sec3 */
+  /* transform: translate(-30.885%, -55.414%); line3 이동*/
+  /* transform: translate(-11.4584%, -50%); project 출력*/
+  /* transform: translate(-30.885%, -55.414%); line3 이동 준비*/
+
+  /* sec4 */
+  /* transform: translate(-30.885%, -70.414%); line3 이동*/
+  /* transform: translate(0%, -70.414%); line4 이동*/
+  /* transform: translate(0%, -75%); line5 이동*/
+
+  /* 임시코드 */
+}
+
+.line1 {
+  position: absolute;
+  top: 14.814%;
+  left: 25%;
+  width: 1px;
+  height: 12.5%;
+  background-color: #999;
+}
+
+.line2 {
+  position: absolute;
+  top: 27.3148%;
+  left: 25%;
+  width: 30.9375%;
+  height: 1px;
+  background-color: #999;
+}
+
+.line3 {
+  position: absolute;
+  top: 27.3148%;
+  left: 55.8854%;
+  width: 1px;
+  height: 55.625%;
+  background-color: #999;
+}
+
+.line4 {
+  position: absolute;
+  top: 82.9167%;
+  left: 25%;
+  width: 30.9%;
+  height: 1px;
+  background-color: #999;
+}
+
+.line5 {
+  position: absolute;
+  top: 82.9167%;
+  left: 25%;
+  width: 1px;
+  height: 4.5833%;
+  background-color: #999;
+}
+
+section {
+  border: 1px solid red;
+  width: 50%;
+  height: 25%;
+}
+
+.sec1 {
+  border: 1px solid blueviolet;
+}
+
+.sec2 {
+  border: 1px solid rosybrown;
+  transform: translateX(100%);
+}
+
+.sec3 {
+  border: 1px solid gold;
+  transform: translateX(22.9167%);
+}
+
+.sec4 {
+  border: 1px solid saddlebrown;
+}
