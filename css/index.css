@@ -19,10 +19,11 @@
 :root {
   --font_Line: "LINESeedKR";
   --font_Pretendard: "Pretendard-Regular";
-  --f_size_H1: 48px;
-  --f_size_H2: 36px;
-  --f_size_H3: 24px;
-  --f_size_b1: 24px;
+  --f_size_H1_48pt: 48px;
+  --f_size_H2_36pt: 36px;
+  --f_size_H3_24pt: 24px;
+  --f_size_b1_24pt: 24px;
+  --f_size_b2_12pt: 12px;
   --color_main01: #2297f4;
   --color_main01_06: rgba(34, 151, 244, 0.6);
   --color_sub01: rgba(34, 151, 244, 0.1);
@@ -38,9 +39,13 @@
   color: var(--color_text_black);
 }
 
+button:focus {
+  outline: none;
+}
+
 /* view = main */
 .view {
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -244,7 +249,7 @@ section {
 }
 
 .sec1 h1 {
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   color: var(--color_gray);
   position: absolute;
@@ -267,7 +272,7 @@ section {
 
 .sec1 h2 {
   display: inline;
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   position: relative;
 }
@@ -342,7 +347,7 @@ section {
 }
 
 .sec1 .click {
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   margin-top: 20%;
 }
@@ -372,7 +377,7 @@ section {
 }
 
 .sec2 h2 {
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   color: var(--color_white);
   display: flex;
@@ -424,7 +429,7 @@ section {
 }
 
 .sec2 h3 {
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
 }
 
@@ -449,13 +454,13 @@ section {
 }
 
 .sec2 .education span:first-of-type {
-  font-size: var(--f_size_H2);
+  font-size: var(--f_size_H2_36pt);
   font-family: var(--font_Line);
   color: var(--color_main01);
 }
 
 .sec2 .education span:last-of-type {
-  font-size: var(--f_size_b1);
+  font-size: var(--f_size_b1_24pt);
   font-family: var(--font_Pretendard);
 }
 
@@ -495,17 +500,16 @@ section {
 
 .sec2 .btn img {
   width: 100%;
-  height: 100%;
 }
 
 .sec2 .btn:first-of-type {
   transform: rotate(-90deg);
-  animation: sec2_prev 7s 1s infinite ease;
+  animation: sec2_prev 5s infinite ease;
 }
 
 .sec2 .btn:last-of-type {
   transform: translateX(130%);
-  animation: sec2_next 7s 2.5s infinite ease;
+  animation: sec2_next 5s 2s infinite ease;
 }
 
 @keyframes sec2_prev {
@@ -549,11 +553,35 @@ section {
   transform: translateX(22.9167%);
 }
 
+.sec3::before,
+.sec3::after {
+  content: "";
+  background-color: var(--color_sub02);
+  border-radius: 7.5%;
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: -1;
+}
+
+.sec3::before {
+  width: 25%;
+  height: 50%;
+  top: -18%;
+  left: 75%;
+}
+
+.sec3::after {
+  width: 15%;
+  height: 30%;
+  top: 50%;
+  left: 5%;
+}
+
 .sec3 h2 {
   /* display: inline-block; */
-  font-size: var(--f_size_H1);
+  font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
-  /* color: var(--color_white); */
+  color: var(--color_white);
   position: absolute;
   bottom: 25%;
   right: 6.9%;
@@ -572,6 +600,296 @@ section {
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
   z-index: -1;
+}
+
+.sec3 > article {
+  /* border: 1px solid red; */
+  overflow: hidden;
+  width: 65%;
+  height: 78%;
+  position: absolute;
+  top: 17%;
+  left: 10%;
+}
+
+.sec3 .project_con {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  margin-left: 0;
+}
+
+.sec3 .project_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% / 3);
+  position: relative;
+}
+
+.sec3 .project_list article {
+  display: flex;
+  position: relative;
+}
+
+.sec3 .project_list img {
+  width: 100%;
+}
+
+.sec3 .p1 .project_img_01 {
+  width: 60%;
+  bottom: 0;
+}
+
+.sec3 .p1 .project_img_02 {
+  width: 20%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.sec3 .p2 .project_img_01 {
+  width: 60%;
+  bottom: 0;
+}
+
+.sec3 .p2 .project_img_02 {
+  width: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 53%;
+}
+
+.sec3 .p3 .project_img_01 {
+  width: 60%;
+  bottom: 0;
+}
+
+.sec3 .p3 .project_img_02 {
+  width: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 53%;
+}
+
+.sec3 .p3 .project_img_03 {
+  width: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 53%;
+}
+
+.sec3 .project_list .p_desc {
+  display: flex;
+  flex: 1;
+  padding-top: 1rem;
+}
+
+.sec3 .project_list div p {
+  flex: 1;
+}
+
+.sec3 .project_list div p:first-of-type {
+  line-height: 1.4;
+}
+
+.sec3 .project_list div p:last-of-type {
+  font-size: var(--f_size_b1_24pt);
+  font-family: var(--font_Pretendard);
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.sec3 .project_list div p:first-of-type strong,
+.sec3 .project_list div p:last-of-type strong {
+  font-size: var(--f_size_H2_36pt);
+  font-family: var(--font_Line);
+}
+
+.sec3 .project_list div p:first-of-type span {
+  font-size: var(--f_size_b1_24pt);
+  font-family: var(--font_Pretendard);
+}
+
+.sec3 .project_list div p:last-of-type span {
+  position: relative;
+  white-space: nowrap;
+}
+
+.sec3 .project_list div p:last-of-type span::before {
+  content: "";
+  width: 102%;
+  height: 70%;
+  background-color: var(--color_main02_05);
+  position: absolute;
+  top: 30%;
+  left: -1%;
+  z-index: -1;
+}
+
+.sec3 .p3 .p_desc p:first-of-type span:last-of-type {
+  display: inline-block;
+  position: absolute;
+  transform: translate(3%, 0);
+}
+
+.sec3 .p_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
+  top: 5%;
+  left: 76%;
+}
+
+.sec3 .p_btns a {
+  font-size: var(--f_size_H3_24pt);
+  font-family: var(--font_Line);
+  pointer-events: auto;
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+  border: 1px solid var(--color_gray);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem 0.25rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sec3 .p_btns a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--color_main02_05);
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  transform: translateX(-120%) skew(30deg);
+  transition: transform 0.7s cubic-bezier(0.3, 1, 0.8, 1);
+  z-index: -1;
+}
+
+.sec3 .p_btns a:hover::before {
+  transform: translateX(0%);
+}
+
+.sec3 .list_pg {
+  position: absolute;
+  top: 58%;
+  left: 76%;
+  font-size: var(--f_size_b2_12pt);
+  font-family: var(--font_Pretendard);
+  z-index: 30;
+  display: flex;
+}
+
+.sec3 .list_pg .page {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 10;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.sec3 .list_pg .page::before {
+  content: "";
+  width: 0%;
+  height: 0%;
+  border-radius: 5px;
+  background-color: var(--color_light_gray);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.sec3 .list_pg .page:hover::before {
+  width: 70%;
+  height: 70%;
+  background-color: var(--color_main02_05);
+}
+
+.sec3 .list_pg .page.on::before {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color_main02_05);
+}
+
+.sec3 .list_pg .pg_btn {
+  border: none;
+  background-color: transparent;
+  color: var(--color_text_black);
+  position: relative;
+  cursor: pointer;
+}
+
+.sec3 .list_pg .pg_btn::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  transition: 0.3s;
+}
+
+.sec3 .list_pg .pg_btn:hover::after {
+  width: 75%;
+}
+
+.sec3 .btn {
+  animation: sec3_btn 5s infinite ease;
+}
+
+.sec3 .btn.prev {
+  position: absolute;
+  top: 5%;
+  right: 14%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.sec3 .btn.next {
+  position: absolute;
+  bottom: 5%;
+  right: 14%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  animation-delay: 1.5s;
+}
+
+.sec3 .btn img {
+  width: 100%;
+}
+
+@keyframes sec3_btn {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(15deg);
+  }
+  15% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(0deg);
+  }
 }
 
 .sec4 {
