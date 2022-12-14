@@ -40,3 +40,41 @@ function wait(ms) {
 }
 
 setTimeout(typing, 1500);
+
+// sec3 포트폴리오 리스트
+const $ProjectCon = document.querySelector(".project_con");
+const $ProjectList = document.querySelectorAll(".project_list");
+const $PgPrev = document.querySelector(".pg_prev");
+const $PgNext = document.querySelector(".pg_next");
+const $Pg = document.querySelectorAll(".page");
+
+let firstList = $ProjectCon.firstElementChild;
+let lastList = $ProjectCon.lastElementChild;
+
+let $pagenation = document.querySelector(".pagenation");
+let pgActive = $pagenation.getElementsByClassName("on");
+console.log($pagenation);
+console.log(pgActive);
+
+$PgNext.addEventListener("click", nextSl);
+$PgPrev.addEventListener("click", prevSl);
+
+function nextSl() {
+  $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
+  setTimeout(() => {
+    $ProjectCon.insertBefore(firstList, null);
+    $ProjectCon.style.cssText = `margin-left = 0`;
+  }, 500);
+  firstList = $ProjectCon.firstElementChild;
+  lastList = $ProjectCon.lastElementChild;
+}
+
+function prevSl() {
+  firstList = $ProjectCon.firstElementChild;
+  lastList = $ProjectCon.lastElementChild;
+  $ProjectCon.insertBefore(lastList, firstList);
+  $ProjectCon.style.cssText = `margin-left: -100%;`;
+  setTimeout(() => {
+    $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
+  }, 0);
+}
