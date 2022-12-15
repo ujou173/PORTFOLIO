@@ -215,11 +215,48 @@ const remove = async function () {
   typing();
 };
 
+// sec4 타이핑 텍스트
+const $typingTextSec4 = document.querySelector(".sec4_typing_text");
+
+const sec4Letters = ["같이 일할 퍼블리셔를 찾고 계신가요?"];
+
+const typingSpeedSec4 = 60;
+let i4 = 0;
+
+// sec4 타이핑 효과
+const sec4Typing = async function () {
+  const sec4Letter = sec4Letters[i4].split("");
+
+  while (sec4Letter.length) {
+    await wait(typingSpeedSec4);
+    $typingTextSec4.innerHTML += sec4Letter.shift();
+  }
+  await wait(2500);
+
+  sec4Remove();
+};
+
+// sec4타이핑 지우는 효과
+const sec4Remove = async function () {
+  const sec4Letter = sec4Letters[i4].split("");
+
+  while (sec4Letter.length) {
+    await wait(typingSpeedSec4);
+    sec4Letter.pop();
+    $typingTextSec4.innerHTML = sec4Letter.join("");
+  }
+
+  i4 = !sec4Letters[i4 + 1] ? 0 : i4 + 1;
+  await wait(1000);
+  sec4Typing();
+};
+
 function wait(ms) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
 setTimeout(typing, 1500);
+setTimeout(sec4Typing, 1500);
 
 // sec3 포트폴리오 리스트
 const $ProjectCon = document.querySelector(".project_con");
