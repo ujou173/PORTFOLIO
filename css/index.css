@@ -895,3 +895,54 @@ section {
 .sec4 {
   border: 1px solid saddlebrown;
 }
+
+.sec4 h2 {
+  font-size: var(--f_size_H1_48pt);
+  font-family: var(--font_Line);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* position: relative; */
+}
+
+.sec4 h2::before {
+  border: 1px solid green;
+  content: "";
+  width: 120%;
+  height: 290%;
+  border-radius: 50%;
+  background-color: var(--color_main03);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.sec4 a {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: var(--f_size_H2_36pt);
+  font-family: var(--font_Line);
+}
+
+.sec4 a:hover {
+  text-decoration: underline;
+}
+
+.sec4 .qr_code {
+  position: absolute;
+  width: 10%;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sec4 .qr_code img {
+  display: block;
+  width: 100%;
+}
