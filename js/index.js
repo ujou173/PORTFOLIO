@@ -55,16 +55,25 @@ $sec2_prev.addEventListener("click", function () {
 const $profile = document.querySelector(".sec2 > h2");
 const $sec2_desc = document.querySelector(".sec2_desc");
 $profile.addEventListener("click", function () {
-  $bg.style.cssText = `
+  if ($sec2_desc.classList.contains("on")) {
+    $sec2_desc.classList.remove("on");
+    $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.6s;
+    `;
+  } else {
+    $bg.style.cssText = `
   transform: translate(-50%, -25%);
   transition: 0.7s;
   `;
-  $sec2_desc.classList.add("on");
+    $sec2_desc.classList.add("on");
+  }
 });
 
 const $sec2_next = document.querySelector(".sec2 .next");
 $sec2_next.addEventListener("click", function () {
   if ($sec2_desc.classList.contains("on")) {
+    // sec2 프로필이 출력중일 경우 프로필을 닫고 원상 복귀 후 이동
     $sec2_desc.classList.remove("on");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
@@ -86,8 +95,90 @@ $sec2_next.addEventListener("click", function () {
 
 // 프로젝트 영역
 const $project = document.querySelector(".sec3 > h2");
+const $sec3_desc = document.querySelector(".sec3 > article");
+$project.addEventListener("click", function () {
+  if ($sec3_desc.classList.contains("on")) {
+    $sec3_desc.classList.remove("on");
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -55.414%);
+    transition: 0.6s;
+    `;
+  } else {
+    $sec3_desc.classList.add("on");
+    $bg.style.cssText = `
+  transform: translate(-11.4584%, -50%);
+  transition: 0.6s;
+  `;
+  }
+});
 
 const $sec3_prev = document.querySelector(".sec3 > .prev");
+$sec3_prev.addEventListener("click", function () {
+  if ($sec3_desc.classList.contains("on")) {
+    $sec3_desc.classList.remove("on");
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -55.414%);
+    transition: 0.6s;
+    `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.6s;
+    `;
+    }, 610);
+  } else {
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -14.814%);
+    transition: 0.6s;
+  `;
+  }
+});
+
+const $sec3_next = document.querySelector(".sec3 > .next");
+$sec3_next.addEventListener("click", function () {
+  if ($sec3_desc.classList.contains("on")) {
+    $sec3_desc.classList.remove("on");
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -55.414%);
+    transition: 0.6s;
+    `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(-30.885%, -70.414%);
+      transition: 0.3s;
+      `;
+    }, 610);
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(0%, -70.414%);
+      transition: 0.5s;
+      `;
+    }, 960);
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(0%, -75%);
+      transition: 0.3s;
+      `;
+    }, 1470);
+  } else {
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -70.414%);
+    transition: 0.3s;
+    `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(0%, -70.414%);
+      transition: 0.5s;
+      `;
+    }, 320);
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(0%, -75%);
+      transition: 0.3s;
+      `;
+    }, 840);
+  }
+});
 
 // sec1 타이핑 텍스트
 const $typingText = document.querySelector(".typing_text");
