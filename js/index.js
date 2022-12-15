@@ -1,4 +1,93 @@
 // 섹션간 이동
+const $bg = document.querySelector(".bg");
+// 파워버튼 영역
+const $power_con = document.querySelector(".power_con");
+$power_con.addEventListener("click", function () {
+  $bg.style.cssText = `
+      transform: translate(0%, -14.814%);
+      transition: 0.7s;
+    `;
+  setTimeout(function () {
+    $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 1.2s;
+    `;
+  }, 710);
+});
+
+const $sec2_prev = document.querySelector(".sec2 .prev");
+$sec2_prev.addEventListener("click", function () {
+  // sec2의 프로필이 출력중일 경우 닫고 처음으로 돌아감
+  if ($sec2_desc.classList.contains("on")) {
+    $sec2_desc.classList.remove("on");
+    $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.3s;
+    `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+      transform: translate(0%, -14.814%);
+        transition: 0.3s;
+      `;
+    }, 400);
+    setTimeout(function () {
+      $bg.style.cssText = `
+        transform: translate(0,0);
+        transition: 0.5s;
+      `;
+    }, 800);
+  } else {
+    // sec2의 프로필이 출력중이 아닐경우 바로 돌아감
+    $bg.style.cssText = `
+        transform: translate(0%, -14.814%);
+        transition: 0.3s;
+      `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+        transform: translate(0,0);
+        transition: 0.5s;
+      `;
+    }, 500);
+  }
+});
+
+// 프로필 영역
+const $profile = document.querySelector(".sec2 > h2");
+const $sec2_desc = document.querySelector(".sec2_desc");
+$profile.addEventListener("click", function () {
+  $bg.style.cssText = `
+  transform: translate(-50%, -25%);
+  transition: 0.7s;
+  `;
+  $sec2_desc.classList.add("on");
+});
+
+const $sec2_next = document.querySelector(".sec2 .next");
+$sec2_next.addEventListener("click", function () {
+  if ($sec2_desc.classList.contains("on")) {
+    $sec2_desc.classList.remove("on");
+    $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.6s;
+    `;
+    setTimeout(function () {
+      $bg.style.cssText = `
+    transform: translate(-30.885%, -55.414%);
+    transition: 1.2s;
+    `;
+    }, 850);
+  } else {
+    $bg.style.cssText = `
+    transform: translate(-30.885%, -55.414%);
+    transition: 1.2s;
+    `;
+  }
+});
+
+// 프로젝트 영역
+const $project = document.querySelector(".sec3 > h2");
+
+const $sec3_prev = document.querySelector(".sec3 > .prev");
 
 // sec1 타이핑 텍스트
 const $typingText = document.querySelector(".typing_text");
@@ -53,8 +142,6 @@ let lastList = $ProjectCon.lastElementChild;
 
 let $pagenation = document.querySelector(".pagenation");
 let pgActive = $pagenation.getElementsByClassName("on");
-console.log($pagenation);
-console.log(pgActive);
 
 $PgNext.addEventListener("click", nextSl);
 $PgPrev.addEventListener("click", prevSl);
