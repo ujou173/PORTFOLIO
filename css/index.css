@@ -281,10 +281,6 @@ section {
   transition: top 0.7s;
 }
 
-.sec1 > div.on .typing_div {
-  top: 35%;
-}
-
 .sec1 h2 {
   display: inline;
   font-size: var(--f_size_H1_48pt);
@@ -939,7 +935,7 @@ section {
 }
 
 .sec4 h2::before {
-  border: 1px solid green;
+  border: 1px solid #be7400;
   content: "";
   width: 120%;
   height: 290%;
@@ -1007,4 +1003,32 @@ section {
   0% {
     transform: rotate(90deg);
   }
+}
+
+.sec4 .sec4_typing_div {
+  display: inline;
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.7s;
+}
+
+.sec4 h3 {
+  display: inline;
+  font-size: var(--f_size_H1_48pt);
+  font-family: var(--font_Line);
+  position: relative;
+}
+
+.sec4 h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  /* width: 2px; */
+  height: 110%;
+  margin-left: 0.4rem;
+  border-right: 2px solid var(--color_text_black);
+  animation: cursor 0.9s infinite steps(2);
 }
