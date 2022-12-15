@@ -80,6 +80,7 @@ button:focus {
 .gnb li {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+  transition: transform 0.5s;
 }
 
 .gnb li:hover {
@@ -635,6 +636,7 @@ section {
   top: 17%;
   left: 10%;
   opacity: 0;
+  transition: 1s;
 }
 
 .sec3 > article.on {
@@ -878,12 +880,13 @@ section {
 
 .sec3 .btn {
   animation: sec3_btn 5s infinite ease;
+  opacity: 0.5;
 }
 
 .sec3 .btn.prev {
   position: absolute;
-  top: 5%;
-  right: 14%;
+  bottom: 5%;
+  right: 7%;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -892,7 +895,7 @@ section {
 .sec3 .btn.next {
   position: absolute;
   bottom: 5%;
-  right: 14%;
+  right: 12.5%;
   width: 50px;
   height: 50px;
   cursor: pointer;
