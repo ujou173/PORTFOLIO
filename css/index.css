@@ -952,7 +952,7 @@ section {
   z-index: -1;
 }
 
-.sec4 a {
+.sec4 > a {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -962,7 +962,7 @@ section {
   font-family: var(--font_Line);
 }
 
-.sec4 a:hover {
+.sec4 > a:hover {
   text-decoration: underline;
 }
 
@@ -977,4 +977,34 @@ section {
 .sec4 .qr_code img {
   display: block;
   width: 100%;
+}
+
+.sec4 .btn.prev {
+  position: absolute;
+  top: 23.5%;
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  opacity: 0.5;
+  cursor: pointer;
+  transform: rotate(90deg);
+  animation: sec4_btn 5s infinite ease;
+}
+
+@keyframes sec4_btn {
+  0% {
+    transform: rotate(90deg);
+  }
+  5% {
+    transform: rotate(75deg);
+  }
+  15% {
+    transform: rotate(105deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  0% {
+    transform: rotate(90deg);
+  }
 }
