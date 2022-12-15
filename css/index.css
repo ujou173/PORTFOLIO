@@ -45,7 +45,7 @@ button:focus {
 
 /* view = main */
 .view {
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -140,12 +140,14 @@ button:focus {
   background-color: var(--color_white);
   border: 1px solid var(--color_sub01);
   box-shadow: 0 0 15px rgba(34, 151, 244, 0.8);
-  position: fixed;
-  top: 59.5%;
+  position: absolute;
+  /* top: calc(59.5% - 12.5px); */
+  /* left: calc(50% - 12.5px); */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 30;
-  display: none;
+  z-index: -1;
+  /* display: none; */
 }
 
 .bg {
@@ -180,17 +182,23 @@ button:focus {
   /* 임시코드 */
 }
 
+.line {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
 .line div {
   position: absolute;
   background-color: #999;
-  z-index: -1;
+  z-index: -3;
 }
 
 .line1 {
-  top: 14.814%;
+  top: 11.814%;
   left: 25%;
   width: 1px;
-  height: 12.5%;
+  height: 15.5%;
+  /* height: 12.5%; */
 }
 
 .line2 {
@@ -235,17 +243,23 @@ section {
 .sec1 > div {
   width: 100%;
   height: 100%;
-  transform: translate(-50%, -50%);
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   transition: top 0.7s;
+  /* background-color: white; */
+  z-index: 20;
 }
 
 .sec1 > div.on {
-  top: 30%;
+  top: 40%;
+}
+
+.sec1 > div.on .click {
+  opacity: 0;
 }
 
 .sec1 h1 {
@@ -316,6 +330,7 @@ section {
   height: 150px;
   position: relative;
   cursor: pointer;
+  background-color: var(--color_white);
 }
 
 .sec1 .power_icon img {
@@ -337,13 +352,13 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   filter: blur(60px);
-  z-index: -1;
+  z-index: 1;
   opacity: 0;
   transition: 0.5s;
 }
 
 .sec1 .power_icon:hover::before {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .sec1 .click {
@@ -392,6 +407,7 @@ section {
   position: absolute;
   top: 4.629%;
   left: 2.6%;
+  cursor: pointer;
 }
 
 .sec2 .sec2_desc {
@@ -404,6 +420,12 @@ section {
   flex-direction: column;
   justify-content: space-between;
   align-items: left;
+  opacity: 0;
+  transition: 1s;
+}
+
+.sec2 .sec2_desc.on {
+  opacity: 1;
 }
 
 .sec2 .sec2_desc::before {
@@ -496,6 +518,7 @@ section {
   width: 50px;
   height: 50px;
   cursor: pointer;
+  opacity: 0.5;
 }
 
 .sec2 .btn img {
@@ -586,6 +609,7 @@ section {
   bottom: 25%;
   right: 6.9%;
   z-index: 10;
+  cursor: pointer;
 }
 
 .sec3 h2::before {
@@ -610,6 +634,11 @@ section {
   position: absolute;
   top: 17%;
   left: 10%;
+  opacity: 0;
+}
+
+.sec3 > article.on {
+  opacity: 1;
 }
 
 .sec3 .project_con {
