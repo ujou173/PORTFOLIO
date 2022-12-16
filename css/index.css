@@ -104,7 +104,8 @@ button:focus {
   cursor: pointer;
 }
 
-.gnb .circle {
+.gnb .circle,
+.gnb .circle2 {
   display: block;
   width: 30px;
   height: 30px;

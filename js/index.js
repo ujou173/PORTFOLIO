@@ -1,4 +1,4 @@
-// 섹션간 이동
+// 백그라운드
 const $bg = document.querySelector(".bg");
 const $lineBg = document.querySelector(".line_bg");
 const $line = document.querySelector(".line");
@@ -9,8 +9,9 @@ const $sec4TypingDiv = document.querySelector(".sec4_typing_div");
 // gnb 영역
 const $gnb = document.querySelector(".gnb");
 const $gnbList = document.querySelectorAll(".gnb li");
-const $gnbAnchor = document.querySelectorAll(".gnb li a");
+const $gnbAnchor = document.querySelectorAll(".gnb li button");
 
+// gnb 현재 섹션 표시
 function gnbActive(gnbNum) {
   $gnbList.forEach(function (a) {
     a.classList.remove("on");
@@ -18,20 +19,132 @@ function gnbActive(gnbNum) {
   $gnbList[gnbNum].classList.add("on");
 }
 
-function gnbmove() {
-  $gnbAnchor.addEventListener("click", function (m) {
-    m.preventDefault();
-    $gnbAnchor.forEach(function (c) {
-      c.classList.remove("on");
-      this.classList.add("on");
-    });
-  });
+let now = "s1";
+console.log(now);
+
+let dest = 0;
+console.log(dest);
+
+let gnbCount = 0;
+
+// 진행중인 내용
+// 1. 이동 함수가 실행중에 도착지에 도착하면 함수 실행 중지
+// if (now == dest) {실행중지}
+// return이나 break가 안됨. 일시 보류
+//
+// 2. gnb에서 섹션 누를경우 해당 섹션만 on 나머지 remove.on
+
+// 도착지 설정
+function destination(j) {
+  if (j.classList.contains("circle")) {
+    dest = 0;
+    console.log(dest);
+  } else if (j.classList.contains("rect")) {
+    dest = 1;
+    console.log(dest);
+  } else if (j.classList.contains("rhomb")) {
+    dest = 2;
+    console.log(dest);
+  } else if (j.classList.contains("circle2")) {
+    dest = 3;
+    console.log(dest);
+  }
 }
 
-// 파워버튼 영역
+// gnb 클릭시 해당 섹션으로 이동
+$gnbAnchor.forEach(function (h) {
+  h.addEventListener("click", function () {
+    console.log(h);
+    destination(h);
+    gnbActive(dest);
+    console.log(dest);
+    gnbMove();
+  });
+});
+
+// --------------------------------------GNB 이동 함수------------------------------------------------
+function gnbMove() {
+  console.log("함수실행");
+  if (now == "s4") {
+    console.log("if문 진입");
+    Sec4ToSec3();
+    if (dest < 2) {
+      setTimeout(() => {
+        Sec3ToSec2();
+      }, 920);
+      if (dest < 1) {
+        setTimeout(() => {
+          Sec2ToSec1();
+        }, 1530);
+      }
+    }
+  } else if (now == "s3") {
+    if (dest == 3) {
+      Sec3ToSec4();
+    } else {
+      Sec3ToSec2();
+      if (dest < 1) {
+        setTimeout(() => {
+          Sec2ToSec1();
+        }, 610);
+      }
+    }
+  } else if (now == "s2") {
+    if (dest == 0) {
+      Sec2ToSec1();
+    } else {
+      Sec2ToSec3();
+      if (dest > 2) {
+        setTimeout(() => {
+          Sec3ToSec4();
+        }, 1210);
+      }
+    }
+  }
+}
+
+//-----------------------------------섹션 간 이동------------------------------------------------
+
+// sec2 on/off -----------------------------------------
+const $profile = document.querySelector(".sec2 > h2");
+const $sec2_desc = document.querySelector(".sec2_desc");
+$profile.addEventListener("click", function () {
+  if ($sec2_desc.classList.contains("on")) {
+    $profile.classList.remove("on");
+    $sec2_desc.classList.remove("on");
+    $bg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.6s;
+    `;
+    $lineBg.style.cssText = `
+      transform: translate(-30.885%, -14.814%);
+      transition: 0.6s;
+    `;
+    setTimeout(function () {
+      $dot.classList.remove("off");
+    }, 610);
+  } else {
+    $profile.classList.add("on");
+    $dot.classList.add("off");
+    $bg.style.cssText = `
+      transform: translate(-50%, -25%);
+      transition: 0.7s;
+    `;
+    $lineBg.style.cssText = `
+      transform: translate(-50%, -25%);
+      transition: 0.7s;
+    `;
+    $sec2_desc.classList.add("on");
+  }
+});
+// sec2 on/off -----------------------------------------
+
+// sec1에서 sec2로 이동 -------------------------------------
 const $power_con = document.querySelector(".power_con");
 
-$power_con.addEventListener("click", function () {
+function Sec1ToSec2() {
+  now = "s2";
+  console.log(now);
   $power.classList.add("on");
   $line.classList.add("on");
   setTimeout(function () {
@@ -56,10 +169,14 @@ $power_con.addEventListener("click", function () {
     $gnb.classList.add("on");
     gnbActive(1);
   }, 1120);
-});
+}
+// sec1에서 sec2로 이동 -------------------------------------
 
+// sec2에서 sec1로 이동 -------------------------------------
 const $sec2_prev = document.querySelector(".sec2 .prev");
-$sec2_prev.addEventListener("click", function () {
+function Sec2ToSec1() {
+  now = "s1";
+  console.log(now);
   $gnb.classList.remove("on");
   // sec2의 프로필이 출력중일 경우 닫고 처음으로 돌아감
   if ($sec2_desc.classList.contains("on")) {
@@ -123,43 +240,14 @@ $sec2_prev.addEventListener("click", function () {
       $line.classList.remove("on");
     }, 900);
   }
-});
+}
+// sec2에서 sec1로 이동 -------------------------------------
 
-// 프로필 영역
-const $profile = document.querySelector(".sec2 > h2");
-const $sec2_desc = document.querySelector(".sec2_desc");
-$profile.addEventListener("click", function () {
-  if ($sec2_desc.classList.contains("on")) {
-    $profile.classList.remove("on");
-    $sec2_desc.classList.remove("on");
-    $bg.style.cssText = `
-      transform: translate(-30.885%, -14.814%);
-      transition: 0.6s;
-    `;
-    $lineBg.style.cssText = `
-      transform: translate(-30.885%, -14.814%);
-      transition: 0.6s;
-    `;
-    setTimeout(function () {
-      $dot.classList.remove("off");
-    }, 610);
-  } else {
-    $profile.classList.add("on");
-    $dot.classList.add("off");
-    $bg.style.cssText = `
-      transform: translate(-50%, -25%);
-      transition: 0.7s;
-    `;
-    $lineBg.style.cssText = `
-      transform: translate(-50%, -25%);
-      transition: 0.7s;
-    `;
-    $sec2_desc.classList.add("on");
-  }
-});
-
+// sec2에서 sec3로 이동 -------------------------------------
 const $sec2_next = document.querySelector(".sec2 .next");
-$sec2_next.addEventListener("click", function () {
+function Sec2ToSec3() {
+  now = "s3";
+  console.log(now);
   if ($sec2_desc.classList.contains("on")) {
     // sec2 프로필이 출력중일 경우 프로필을 닫고 원상 복귀 후 이동
     $profile.classList.remove("on");
@@ -195,9 +283,10 @@ $sec2_next.addEventListener("click", function () {
     `;
     gnbActive(2);
   }
-});
+}
+// sec2에서 sec3로 이동 -------------------------------------
 
-// 프로젝트 영역
+// sec3 on/off -------------------------------------------------
 const $project = document.querySelector(".sec3 > h2");
 const $projectWrap = document.querySelector(".sec3 .project_wrap");
 const $sec3_desc = document.querySelector(".sec3 .project_wrap > article");
@@ -232,9 +321,13 @@ $project.addEventListener("click", function () {
   `;
   }
 });
+// sec3 on/off -------------------------------------------------
 
+// sec3에서 sec2로 이동 -------------------------------------
 const $sec3_prev = document.querySelector(".sec3 > .prev");
-$sec3_prev.addEventListener("click", function () {
+function Sec3ToSec2() {
+  now = "s2";
+  console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
@@ -270,11 +363,14 @@ $sec3_prev.addEventListener("click", function () {
   `;
     gnbActive(1);
   }
-});
+}
+// sec3에서 sec2로 이동 -------------------------------------
 
-// contact 영역
+// sec3에서 sec4 이동 --------------------------------------------
 const $sec3_next = document.querySelector(".sec3 > .next");
-$sec3_next.addEventListener("click", function () {
+function Sec3ToSec4() {
+  now = "s4";
+  console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
@@ -352,10 +448,14 @@ $sec3_next.addEventListener("click", function () {
     }, 1620);
     $sec4TypingDiv.classList.add("on");
   }
-});
+}
+// sec3에서 sec4 이동 --------------------------------------------
 
+// sec4에서 sec3 이동 --------------------------------------------
 const $sec4_prev = document.querySelector(".sec4 > .prev");
-$sec4_prev.addEventListener("click", function () {
+function Sec4ToSec3() {
+  now = "s3";
+  console.log(now);
   $bg.style.cssText = `
   transform: translate(0%, -70.414%);
       transition: 0.3s;
@@ -386,6 +486,26 @@ $sec4_prev.addEventListener("click", function () {
     transition: 0.3s;
     `;
   }, 920);
+}
+// sec4에서 sec3 이동 --------------------------------------------
+
+$power_con.addEventListener("click", function () {
+  Sec1ToSec2();
+});
+$sec2_prev.addEventListener("click", function () {
+  Sec2ToSec1();
+});
+$sec2_next.addEventListener("click", function () {
+  Sec2ToSec3();
+});
+$sec3_prev.addEventListener("click", function () {
+  Sec3ToSec2();
+});
+$sec3_next.addEventListener("click", function () {
+  Sec3ToSec4();
+});
+$sec4_prev.addEventListener("click", function () {
+  Sec4ToSec3();
 });
 
 // sec1 타이핑 텍스트
