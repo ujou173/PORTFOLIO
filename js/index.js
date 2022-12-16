@@ -27,13 +27,6 @@ console.log(dest);
 
 let gnbCount = 0;
 
-// 진행중인 내용
-// 1. 이동 함수가 실행중에 도착지에 도착하면 함수 실행 중지
-// if (now == dest) {실행중지}
-// return이나 break가 안됨. 일시 보류
-//
-// 2. gnb에서 섹션 누를경우 해당 섹션만 on 나머지 remove.on
-
 // 도착지 설정
 function destination(j) {
   if (j.classList.contains("circle")) {
@@ -605,6 +598,7 @@ function nextSl() {
   firstList = $ProjectCon.firstElementChild;
   lastList = $ProjectCon.lastElementChild;
 
+  // ※ 해결방법 찾음, 상단 GNB 함수 쪽 참고할것(22.12.16)
   // $pg.forEach(function (item) {
   //   item.classList.remove("on");
   // });
@@ -630,18 +624,3 @@ function prevSl() {
     $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
   }, 0);
 }
-
-// 보류
-// $pg.forEach(function (item, idx) {
-//   item.addEventListener("click", function (g) {
-//     g.preventDefault();
-//     pgAct(idx);
-//   });
-// });
-
-// function pgAct(num1) {
-//   $pg.forEach(function (p, i) {
-//     p.classList.remove("on");
-//   });
-//   $pg[num1].classList.add("on");
-// }
