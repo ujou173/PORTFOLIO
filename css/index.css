@@ -40,6 +40,10 @@
   color: var(--color_text_black);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 button:focus {
   outline: none;
 }
@@ -53,7 +57,6 @@ button:focus {
 }
 
 .gnb {
-  /* display: none; */
   position: absolute;
   top: 30px;
   left: 50%;
@@ -95,9 +98,10 @@ button:focus {
   transform: scale(1.2);
 }
 
-.gnb a {
+.gnb button {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .gnb .circle {
@@ -128,17 +132,17 @@ button:focus {
   border: 1px solid var(--color_light_gray);
 }
 
-.gnb li:nth-of-type(2).on a {
+.gnb li:nth-of-type(2).on button {
   background-color: var(--color_main01);
   border: none;
 }
 
-.gnb li:nth-of-type(3).on a {
+.gnb li:nth-of-type(3).on button {
   background-color: var(--color_main02);
   border: none;
 }
 
-.gnb li:nth-of-type(4).on a {
+.gnb li:nth-of-type(4).on button {
   background-color: var(--color_main03);
   border: none;
 }
@@ -171,7 +175,6 @@ button:focus {
   width: 200vw;
   height: 400vh;
   position: absolute;
-  /* z-index: ; */
 }
 
 .line {
@@ -241,7 +244,6 @@ section {
   display: flex;
   flex-direction: column;
   transition: top 0.7s;
-  /* background-color: white; */
 }
 
 .sec1 > div.on .click {
@@ -377,7 +379,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 0.5%;
+  /* padding-top: 0.5%; */
   border-radius: 15px;
   width: 18.229%;
   height: 9.259%;
@@ -440,6 +442,40 @@ section {
   }
   100% {
     transform: translateY(-50%) rotate(0deg);
+  }
+}
+
+.sec2 h2 .b_ani {
+  display: block;
+  background-color: var(--color_main01);
+  position: absolute;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  animation: title_b 2s infinite;
+  z-index: -3;
+}
+
+.sec2 h2.on .b_ani {
+  display: none;
+}
+
+.sec2 h2 .b2 {
+  animation-delay: 0.3s;
+}
+
+.sec2 h2 .b3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes title_b {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }
 
@@ -506,7 +542,7 @@ section {
 .sec2 .education {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .sec2 .education span:first-of-type {
@@ -524,6 +560,7 @@ section {
   font-size: var(--f_size_H2_36pt);
   font-family: var(--font_Line);
   color: var(--color_main01);
+  padding-bottom: 1rem;
 }
 
 .sec2 .skill {
@@ -664,6 +701,44 @@ section {
 
 .sec3 h2:hover::after {
   color: var(--color_main02);
+}
+
+.sec3 h2 .g_ani {
+  /* border: 1px solid red; */
+  display: block;
+  background-color: var(--color_main02);
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 250%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: title_g 2s infinite;
+  z-index: -3;
+}
+
+.sec3 h2.on .g_ani {
+  display: none;
+}
+
+.sec3 h2 .g2 {
+  animation-delay: 0.3s;
+}
+
+.sec3 h2 .g3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes title_g {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+    opacity: 0;
+  }
 }
 
 .sec3 .project_wrap {
@@ -1170,7 +1245,7 @@ section {
   }
 
   .sec2 .education {
-    padding: 0.5rem 0;
+    padding: 2rem 0;
   }
 
   .sec2 .education span:first-of-type {
