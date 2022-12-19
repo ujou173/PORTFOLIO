@@ -111,6 +111,7 @@ $profile.addEventListener("click", function () {
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
+    $gnb.classList.remove("on");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
       transition: 0.6s;
@@ -125,6 +126,7 @@ $profile.addEventListener("click", function () {
   } else {
     $profile.classList.add("on");
     $dot.classList.add("off");
+    $gnb.classList.add("on");
     $bg.style.cssText = `
       transform: translate(-50%, -25%);
       transition: 0.7s;
@@ -165,7 +167,6 @@ function Sec1ToSec2() {
       transform: translate(-30.885%, -14.814%);
       transition: 1.2s;
     `;
-    $gnb.classList.add("on");
     gnbActive(1);
   }, 1120);
 }
@@ -295,6 +296,7 @@ $project.addEventListener("click", function () {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
+    $gnb.classList.remove("on");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
     transition: 0.6s;
@@ -311,6 +313,7 @@ $project.addEventListener("click", function () {
     $projectWrap.classList.add("on");
     $sec3_desc.classList.add("on");
     $project.classList.add("on");
+    $gnb.classList.add("on");
     $bg.style.cssText = `
     transform: translate(-11.4584%, -50%);
     transition: 0.6s;

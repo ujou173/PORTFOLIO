@@ -73,14 +73,15 @@ button:focus {
   right: 5rem;
   width: 250px;
   height: 250px;
-  z-index: 10;
+  z-index: 1;
   transition: 0.5s;
   opacity: 1;
 }
 
-/* .gnb.on { */
-/* opacity: 0; */
-/* } */
+.gnb.on {
+  opacity: 0;
+  z-index: -1;
+}
 
 .gnb ul {
   /* display: flex; */
