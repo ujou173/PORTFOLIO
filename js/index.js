@@ -633,14 +633,18 @@ function prevSl() {
   console.log($pg[pgIdx]);
 }
 
-// pagenatin 현재 페이지 표시
-// function pgActive(pgNum) {
-//   $pg.forEach(function (k) {
-//     k.classList.remove("on");
-//   });
-//   $pg[pgNum].classList.add("on");
-// }
+// pagenation 현재 페이지 표시
+function pgActive(pgNum) {
+  $pg.forEach(function (k) {
+    k.classList.remove("on");
+  });
+  $pg[pgNum].classList.add("on");
+}
 
-// function slideAct(){
-
-// }
+// pg 클릭 시 해당 페이지 active
+$pg.forEach(function (n, nIdx) {
+  n.addEventListener("click", function () {
+    pgActive(nIdx);
+    console.log(nIdx);
+  });
+});
