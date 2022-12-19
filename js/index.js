@@ -71,7 +71,7 @@ function gnbMove() {
       if (dest < 1) {
         setTimeout(() => {
           Sec2ToSec1();
-        }, 610);
+        }, 1210);
       }
     }
   } else if (now == "s2") {
@@ -644,7 +644,70 @@ function pgActive(pgNum) {
 // pg 클릭 시 해당 페이지 active
 $pg.forEach(function (n, nIdx) {
   n.addEventListener("click", function () {
+    pgSlide(nIdx);
     pgActive(nIdx);
     console.log(nIdx);
   });
 });
+
+// 번호 클릭시 해당 슬라이드로 스와이프 되면서 이동
+function pgSlide(number) {
+  if ($pg[0].classList.contains("on")) {
+    // console.log("1번이 on 일때");
+    if (number == 1) {
+      $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
+      setTimeout(() => {
+        $ProjectCon.insertBefore(firstList, null);
+        $ProjectCon.style.cssText = `margin-left = 0`;
+      }, 500);
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+    } else if (number == 2) {
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+      $ProjectCon.insertBefore(lastList, firstList);
+      $ProjectCon.style.cssText = `margin-left: -100%;`;
+      setTimeout(() => {
+        $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
+      }, 0);
+    }
+  } else if ($pg[1].classList.contains("on")) {
+    // console.log(2번이 on 일때");
+    if (number == 0) {
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+      $ProjectCon.insertBefore(lastList, firstList);
+      $ProjectCon.style.cssText = `margin-left: -100%;`;
+      setTimeout(() => {
+        $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
+      }, 0);
+    } else if (number == 2) {
+      $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
+      setTimeout(() => {
+        $ProjectCon.insertBefore(firstList, null);
+        $ProjectCon.style.cssText = `margin-left = 0`;
+      }, 500);
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+    }
+  } else if ($pg[2].classList.contains("on")) {
+    // console.log("3번이 on 일때");
+    if (number == 0) {
+      $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
+      setTimeout(() => {
+        $ProjectCon.insertBefore(firstList, null);
+        $ProjectCon.style.cssText = `margin-left = 0`;
+      }, 500);
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+    } else if (number == 1) {
+      firstList = $ProjectCon.firstElementChild;
+      lastList = $ProjectCon.lastElementChild;
+      $ProjectCon.insertBefore(lastList, firstList);
+      $ProjectCon.style.cssText = `margin-left: -100%;`;
+      setTimeout(() => {
+        $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
+      }, 0);
+    }
+  }
+}
