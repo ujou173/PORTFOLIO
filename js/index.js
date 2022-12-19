@@ -11,6 +11,12 @@ const $gnb = document.querySelector(".gnb");
 const $gnbList = document.querySelectorAll(".gnb li");
 const $gnbAnchor = document.querySelectorAll(".gnb li button");
 
+// 현재 위치 확인용 변수
+let now = "s1";
+
+// 목적지 설정 변수
+let dest = 0;
+
 // gnb 현재 섹션 표시
 function gnbActive(gnbNum) {
   $gnbList.forEach(function (a) {
@@ -19,38 +25,24 @@ function gnbActive(gnbNum) {
   $gnbList[gnbNum].classList.add("on");
 }
 
-let now = "s1";
-console.log(now);
-
-let dest = 0;
-console.log(dest);
-
-let gnbCount = 0;
-
 // 도착지 설정
 function destination(j) {
   if (j.classList.contains("circle")) {
     dest = 0;
-    console.log(dest);
   } else if (j.classList.contains("rect")) {
     dest = 1;
-    console.log(dest);
   } else if (j.classList.contains("rhomb")) {
     dest = 2;
-    console.log(dest);
   } else if (j.classList.contains("circle2")) {
     dest = 3;
-    console.log(dest);
   }
 }
 
 // gnb 클릭시 해당 섹션으로 이동
 $gnbAnchor.forEach(function (h) {
   h.addEventListener("click", function () {
-    console.log(h);
     destination(h);
     gnbActive(dest);
-    console.log(dest);
     gnbMove();
   });
 });
@@ -586,6 +578,8 @@ const $PgPrev = document.querySelector(".pg_prev");
 const $PgNext = document.querySelector(".pg_next");
 const $pg = document.querySelectorAll(".page");
 
+let pgIdx = 0;
+
 $PgNext.addEventListener("click", nextSl);
 $PgPrev.addEventListener("click", prevSl);
 
@@ -598,21 +592,20 @@ function nextSl() {
   firstList = $ProjectCon.firstElementChild;
   lastList = $ProjectCon.lastElementChild;
 
-  // ※ 해결방법 찾음, 상단 GNB 함수 쪽 참고할것(22.12.16)
-  // $pg.forEach(function (item) {
-  //   item.classList.remove("on");
-  // });
+  $pg.forEach(function (item) {
+    item.classList.remove("on");
+  });
 
-  // if (pgIdx < 2) {
-  //   pgIdx = pgIdx + 1;
-  //   console.log(pgIdx);
-  // } else {
-  //   pgIdx = 0;
-  //   console.log(pgIdx);
-  // }
+  if (pgIdx < 2) {
+    pgIdx = pgIdx + 1;
+    console.log(pgIdx);
+  } else {
+    pgIdx = 0;
+    console.log(pgIdx);
+  }
 
-  // $pg[pgIdx].classList.add("on");
-  // console.log($pg[pgIdx]);
+  $pg[pgIdx].classList.add("on");
+  console.log($pg[pgIdx]);
 }
 
 function prevSl() {
@@ -623,4 +616,31 @@ function prevSl() {
   setTimeout(() => {
     $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
   }, 0);
+
+  $pg.forEach(function (item3) {
+    item3.classList.remove("on");
+  });
+
+  if (pgIdx > 0) {
+    pgIdx = pgIdx - 1;
+    console.log(pgIdx);
+  } else {
+    pgIdx = 2;
+    console.log(pgIdx);
+  }
+
+  $pg[pgIdx].classList.add("on");
+  console.log($pg[pgIdx]);
 }
+
+// pagenatin 현재 페이지 표시
+// function pgActive(pgNum) {
+//   $pg.forEach(function (k) {
+//     k.classList.remove("on");
+//   });
+//   $pg[pgNum].classList.add("on");
+// }
+
+// function slideAct(){
+
+// }
