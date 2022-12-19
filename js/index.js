@@ -12,7 +12,7 @@ const $gnbList = document.querySelectorAll(".gnb li");
 const $gnbAnchor = document.querySelectorAll(".gnb li button");
 
 // 현재 위치 확인용 변수
-let now = "s1";
+let now = 0;
 
 // 목적지 설정 변수
 let dest = 0;
@@ -42,28 +42,28 @@ function destination(j) {
 $gnbAnchor.forEach(function (h) {
   h.addEventListener("click", function () {
     destination(h);
-    gnbActive(dest);
+    gnbActive(now);
     gnbMove();
   });
 });
 
 // --------------------------------------GNB 이동 함수------------------------------------------------
 function gnbMove() {
-  console.log("함수실행");
-  if (now == "s4") {
-    console.log("if문 진입");
-    Sec4ToSec3();
-    if (dest < 2) {
-      setTimeout(() => {
-        Sec3ToSec2();
-      }, 920);
-      if (dest < 1) {
+  if (now == 3) {
+    if (dest < 3) {
+      Sec4ToSec3();
+      if (dest < 2) {
         setTimeout(() => {
-          Sec2ToSec1();
-        }, 1530);
+          Sec3ToSec2();
+        }, 920);
+        if (dest < 1) {
+          setTimeout(() => {
+            Sec2ToSec1();
+          }, 1530);
+        }
       }
     }
-  } else if (now == "s3") {
+  } else if (now == 2) {
     if (dest == 3) {
       Sec3ToSec4();
     } else {
@@ -74,7 +74,7 @@ function gnbMove() {
         }, 1210);
       }
     }
-  } else if (now == "s2") {
+  } else if (now == 1) {
     if (dest == 0) {
       Sec2ToSec1();
     } else {
@@ -83,6 +83,20 @@ function gnbMove() {
         setTimeout(() => {
           Sec3ToSec4();
         }, 1210);
+      }
+    }
+  } else if (now == 0) {
+    if (dest > 0) {
+      Sec1ToSec2();
+      if (dest > 1) {
+        setTimeout(() => {
+          Sec2ToSec3();
+        }, 2330);
+        if (dest > 2) {
+          setTimeout(() => {
+            Sec3ToSec4();
+          }, 3540);
+        }
       }
     }
   }
@@ -128,7 +142,7 @@ $profile.addEventListener("click", function () {
 const $power_con = document.querySelector(".power_con");
 
 function Sec1ToSec2() {
-  now = "s2";
+  now = 1;
   console.log(now);
   $power.classList.add("on");
   $line.classList.add("on");
@@ -160,9 +174,8 @@ function Sec1ToSec2() {
 // sec2에서 sec1로 이동 -------------------------------------
 const $sec2_prev = document.querySelector(".sec2 .prev");
 function Sec2ToSec1() {
-  now = "s1";
+  now = 0;
   console.log(now);
-  $gnb.classList.remove("on");
   // sec2의 프로필이 출력중일 경우 닫고 처음으로 돌아감
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
@@ -195,6 +208,7 @@ function Sec2ToSec1() {
         transform: translate(0,0);
         transition: 0.5s;
       `;
+      gnbActive(0);
     }, 910);
     setTimeout(function () {
       $power.classList.remove("on");
@@ -219,6 +233,7 @@ function Sec2ToSec1() {
         transform: translate(0,0);
         transition: 0.5s;
       `;
+      gnbActive(0);
     }, 500);
     setTimeout(function () {
       $power.classList.remove("on");
@@ -231,7 +246,7 @@ function Sec2ToSec1() {
 // sec2에서 sec3로 이동 -------------------------------------
 const $sec2_next = document.querySelector(".sec2 .next");
 function Sec2ToSec3() {
-  now = "s3";
+  now = 2;
   console.log(now);
   if ($sec2_desc.classList.contains("on")) {
     // sec2 프로필이 출력중일 경우 프로필을 닫고 원상 복귀 후 이동
@@ -311,7 +326,7 @@ $project.addEventListener("click", function () {
 // sec3에서 sec2로 이동 -------------------------------------
 const $sec3_prev = document.querySelector(".sec3 > .prev");
 function Sec3ToSec2() {
-  now = "s2";
+  now = 1;
   console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
@@ -354,7 +369,7 @@ function Sec3ToSec2() {
 // sec3에서 sec4 이동 --------------------------------------------
 const $sec3_next = document.querySelector(".sec3 > .next");
 function Sec3ToSec4() {
-  now = "s4";
+  now = 3;
   console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
@@ -439,7 +454,7 @@ function Sec3ToSec4() {
 // sec4에서 sec3 이동 --------------------------------------------
 const $sec4_prev = document.querySelector(".sec4 > .prev");
 function Sec4ToSec3() {
-  now = "s3";
+  now = 2;
   console.log(now);
   $bg.style.cssText = `
   transform: translate(0%, -70.414%);
@@ -496,7 +511,7 @@ $sec4_prev.addEventListener("click", function () {
 // sec1 타이핑 텍스트
 const $typingText = document.querySelector(".typing_text");
 
-const letters = ["Hello, World!", "사람과 대화하듯이, 컴퓨터와 대화하는", "코딩을 즐기는 퍼블리셔 노수민입니다."];
+const letters = ["Hello, World!"];
 
 const typingSpeed = 60;
 let i = 0;
