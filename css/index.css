@@ -314,6 +314,11 @@ h1 {
   position: absolute;
   top: 2rem;
   left: 2rem;
+  transition: opacity 0.3s;
+}
+
+h1.off {
+  opacity: 0;
 }
 
 h1 strong {
@@ -627,7 +632,7 @@ section {
   }
 }
 
-.sec2 h2 span {
+.sec2 h2 span:first-of-type {
   font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   color: var(--color_white);
@@ -640,9 +645,8 @@ section {
   overflow: hidden;
 }
 
-.sec2 h2 span::before {
+.sec2 h2 span:first-of-type::before {
   content: "";
-  border: 1px solid var(--color_light_gray);
   width: 10%;
   height: 110%;
   top: 50%;
@@ -650,10 +654,6 @@ section {
   transform: translateY(-50%) skew(-30deg);
   animation: b_title 4s infinite ease;
   background-color: var(--color_white);
-}
-
-.sec2 h2.on span::before {
-  display: none;
 }
 
 @keyframes b_title {
@@ -669,6 +669,35 @@ section {
     right: -45%;
     opacity: 1;
   }
+}
+
+.sec2 h2.on span:first-of-type::before {
+  display: none;
+}
+
+.sec2 h2 span:last-of-type {
+  position: absolute;
+  font-size: var(--f_size_b2_12pt);
+  font-family: var(--font_Pretendard);
+  top: 0;
+  right: 0;
+  transform: translateY(-130%);
+  animation: text1 0.7s alternate infinite linear;
+  z-index: -5;
+  transition: 0.7s;
+}
+
+@keyframes text1 {
+  0% {
+    transform: translateY(-130%) scale(1);
+  }
+  100% {
+    transform: translateY(-130%) scale(1.1);
+  }
+}
+
+.sec2 h2.on span:last-of-type {
+  opacity: 0;
 }
 
 .sec2 .sec2_desc {
@@ -925,6 +954,33 @@ section {
   transform: rotate(45deg);
 }
 
+.sec3 h2 span:nth-last-of-type(2) {
+  font-size: var(--f_size_b2_12pt);
+  font-family: var(--font_Pretendard);
+  text-align: center;
+  position: absolute;
+  white-space: nowrap;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -130%);
+  transition: 0.7s;
+  animation: text2 0.7s alternate infinite linear;
+  opacity: 1;
+}
+
+@keyframes text2 {
+  0% {
+    transform: translate(-50%, -130%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -130%) scale(1.1);
+  }
+}
+
+.sec3 h2.on span:nth-last-of-type(2) {
+  opacity: 0;
+}
+
 .sec3 h2 span:last-of-type {
   width: 100%;
   height: 100%;
@@ -935,7 +991,6 @@ section {
 
 .sec3 h2 span:last-of-type::after {
   content: "";
-  border: 1px solid var(--color_light_gray);
   border: 1px solid green;
   position: absolute;
   top: -25%;
@@ -964,6 +1019,10 @@ section {
     left: 50%;
     opacity: 1;
   }
+}
+
+.sec3 h2.on span:last-of-type::after {
+  display: none;
 }
 
 .sec3 .project_wrap {
@@ -1092,7 +1151,6 @@ section {
 }
 
 .sec3 .project_list div p {
-  border: 1px solid red;
   flex: 1;
 }
 

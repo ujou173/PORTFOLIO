@@ -5,6 +5,7 @@ const $line = document.querySelector(".line");
 const $power = document.querySelector(".sec1 > div");
 const $dot = document.querySelector(".elec_dot");
 const $sec4TypingDiv = document.querySelector(".sec4_typing_div");
+const $H1 = document.querySelector("h1");
 
 // gnb 영역
 const $gnb = document.querySelector(".gnb");
@@ -112,6 +113,7 @@ $profile.addEventListener("click", function () {
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
     $gnb.classList.remove("on");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
       transition: 0.6s;
@@ -127,6 +129,7 @@ $profile.addEventListener("click", function () {
     $profile.classList.add("on");
     $dot.classList.add("off");
     $gnb.classList.add("on");
+    $H1.classList.add("off");
     $bg.style.cssText = `
       transform: translate(-50%, -25%);
       transition: 0.7s;
@@ -181,6 +184,7 @@ function Sec2ToSec1() {
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
       transition: 0.5s;
@@ -297,6 +301,7 @@ $project.addEventListener("click", function () {
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
     $gnb.classList.remove("on");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
     transition: 0.6s;
@@ -314,6 +319,7 @@ $project.addEventListener("click", function () {
     $sec3_desc.classList.add("on");
     $project.classList.add("on");
     $gnb.classList.add("on");
+    $H1.classList.add("off");
     $bg.style.cssText = `
     transform: translate(-11.4584%, -50%);
     transition: 0.6s;
@@ -335,6 +341,7 @@ function Sec3ToSec2() {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
     transition: 0.6s;
@@ -378,6 +385,7 @@ function Sec3ToSec4() {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
     transition: 0.6s;
