@@ -112,7 +112,7 @@ $profile.addEventListener("click", function () {
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
-    $gnb.classList.remove("on");
+    $gnb.classList.remove("off");
     $H1.classList.remove("off");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
@@ -128,7 +128,7 @@ $profile.addEventListener("click", function () {
   } else {
     $profile.classList.add("on");
     $dot.classList.add("off");
-    $gnb.classList.add("on");
+    $gnb.classList.add("off");
     $H1.classList.add("off");
     $bg.style.cssText = `
       transform: translate(-50%, -25%);
@@ -184,6 +184,7 @@ function Sec2ToSec1() {
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
+    $gnb.classList.remove("off");
     $H1.classList.remove("off");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
@@ -257,6 +258,8 @@ function Sec2ToSec3() {
     // sec2 프로필이 출력중일 경우 프로필을 닫고 원상 복귀 후 이동
     $profile.classList.remove("on");
     $sec2_desc.classList.remove("on");
+    $gnb.classList.remove("off");
+    $H1.classList.remove("off");
     $bg.style.cssText = `
       transform: translate(-30.885%, -14.814%);
       transition: 0.6s;
@@ -300,7 +303,7 @@ $project.addEventListener("click", function () {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
-    $gnb.classList.remove("on");
+    $gnb.classList.remove("off");
     $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
@@ -318,7 +321,7 @@ $project.addEventListener("click", function () {
     $projectWrap.classList.add("on");
     $sec3_desc.classList.add("on");
     $project.classList.add("on");
-    $gnb.classList.add("on");
+    $gnb.classList.add("off");
     $H1.classList.add("off");
     $bg.style.cssText = `
     transform: translate(-11.4584%, -50%);
@@ -341,6 +344,7 @@ function Sec3ToSec2() {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
+    $gnb.classList.remove("off");
     $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);
@@ -385,6 +389,7 @@ function Sec3ToSec4() {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
     $project.classList.remove("on");
+    $gnb.classList.remove("off");
     $H1.classList.remove("off");
     $bg.style.cssText = `
     transform: translate(-30.885%, -55.414%);

@@ -79,7 +79,7 @@ button:focus {
   opacity: 1;
 }
 
-.gnb.on {
+.gnb.off {
   opacity: 0;
   z-index: -1;
 }
@@ -683,6 +683,7 @@ section {
   right: 0;
   transform: translateY(-130%);
   animation: text1 0.7s alternate infinite linear;
+  white-space: nowrap;
   z-index: -5;
   transition: 0.7s;
 }
@@ -761,15 +762,31 @@ section {
 }
 
 .sec2 .education {
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   padding: 3rem 0;
 }
 
 .sec2 .education span:first-of-type {
+  /* border: 1px solid green; */
   font-size: var(--f_size_H2_36pt);
   font-family: var(--font_Line);
   color: var(--color_main01);
+  position: relative;
+  text-indent: 30px;
+}
+
+.sec2 .education span:first-of-type::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 15%;
+  background-color: #0070c9;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .sec2 .education span:last-of-type {
@@ -1412,8 +1429,8 @@ section {
 
 .sec4 .btn.prev {
   position: absolute;
-  top: 23.5%;
-  right: 2%;
+  top: 33.5%;
+  right: 42.5%;
   width: 50px;
   height: 50px;
   opacity: 0.5;
@@ -1491,8 +1508,12 @@ section {
     transform-origin: right bottom;
   }
 
-  .sec1 h1 {
+  h1 {
     font-size: var(--f_size_H3_24pt);
+  }
+
+  h1 span:last-of-type {
+    font-size: var(--f_size_H4_16pt);
   }
 
   .sec1 h2 {
@@ -1503,8 +1524,21 @@ section {
     font-size: var(--f_size_H3_24pt);
   }
 
-  .sec2 h2 span {
+  .sec2 h2 span:first-of-type {
     font-size: var(--f_size_H3_24pt);
+  }
+
+  .sec2 h2 span:last-of-type {
+    animation: text1_1 0.7s alternate infinite linear;
+  }
+
+  @keyframes text1_1 {
+    0% {
+      transform: translate(30%, -130%) scale(1);
+    }
+    100% {
+      transform: translate(30%, -130%) scale(1.1);
+    }
   }
 
   .sec2 h2::after {
@@ -1581,7 +1615,7 @@ section {
     right: -2%;
   }
 
-  .sec3 h2 span {
+  .sec3 h2 span:first-of-type {
     font-size: var(--f_size_H3_24pt);
   }
 
