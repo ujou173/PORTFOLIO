@@ -34,6 +34,7 @@
   --f_size_H4_16pt: 16px;
   --f_size_b1_24pt: 24px;
   --f_size_b2_12pt: 12px;
+  --color_main00: #bb0712;
   --color_main01: #2297f4;
   --color_main01_06: rgba(34, 151, 244, 0.6);
   --color_sub01: rgba(34, 151, 244, 0.1);
@@ -104,7 +105,7 @@ button:focus {
 
 .gnb li:not(.map) {
   position: absolute;
-  padding: 1rem;
+  /* padding: 1rem; */
   cursor: pointer;
   transform: translate(-50%, -50%);
   transition: transform 0.5s;
@@ -164,7 +165,7 @@ button:focus {
 }
 
 .gnb li:nth-of-type(1).on button {
-  background-color: var(--color_light_gray);
+  background-color: var(--color_main00);
   border: none;
 }
 
@@ -181,6 +182,78 @@ button:focus {
 .gnb li:nth-of-type(4).on button {
   background-color: var(--color_main03);
   border: none;
+}
+
+.gnb li.on .gnb_ani {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  animation: gnb_ani 2s infinite;
+  z-index: -1;
+}
+
+.gnb li .gnb_ani {
+  display: none;
+}
+
+.gnb li.on .gnb2 {
+  animation-delay: 0.5s !important;
+}
+
+.gnb li .g_circle {
+  background-color: var(--color_main00);
+  border-radius: 50%;
+}
+
+.gnb li .g_rect {
+  background-color: var(--color_main01);
+  border-radius: 5px;
+}
+
+.gnb li.on .gnb_ani2 {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  animation: gnb_ani2 2s infinite;
+  z-index: -1;
+}
+
+.gnb li .g_rhomb {
+  background-color: var(--color_main02);
+  border-radius: 5px;
+  transform: translateY(-100%) rotate(45deg);
+  animation: gnb_ani2 2s infinite;
+}
+
+.gnb li .g_circle2 {
+  background-color: var(--color_main03);
+  border-radius: 50%;
+}
+
+@keyframes gnb_ani {
+  0% {
+    transform: translateY(-100%) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes gnb_ani2 {
+  0% {
+    transform: translateY(-100%) rotate(45deg) scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100%) rotate(45deg) scale(2);
+    opacity: 0;
+  }
 }
 
 .gnb .map {
@@ -489,13 +562,6 @@ section {
 }
 
 .sec2 h2 {
-  font-size: var(--f_size_H1_48pt);
-  font-family: var(--font_Line);
-  color: var(--color_white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding-top: 0.5%; */
   border-radius: 15px;
   width: 18.229%;
   height: 9.259%;
@@ -504,6 +570,7 @@ section {
   left: 2.6%;
   cursor: pointer;
   z-index: 3;
+  /* overflow: hidden; */
 }
 
 .sec2 h2::before {
@@ -513,12 +580,11 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 0 0.3rem;
   transform: translate(-50%, -50%);
   background-color: var(--color_main01);
   border: 1px solid #0070c9;
   border-radius: 15px;
-  z-index: -2;
+  z-index: -1;
 }
 
 .sec2 h2::after {
@@ -561,37 +627,47 @@ section {
   }
 }
 
-.sec2 h2 .b_ani {
-  display: block;
-  background-color: var(--color_main01);
-  position: absolute;
-  border-radius: 15px;
+.sec2 h2 span {
+  font-size: var(--f_size_H1_48pt);
+  font-family: var(--font_Line);
+  color: var(--color_white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  animation: title_b 2s infinite;
-  z-index: -3;
+  position: absolute;
+  overflow: hidden;
 }
 
-.sec2 h2.on .b_ani {
+.sec2 h2 span::before {
+  content: "";
+  border: 1px solid var(--color_light_gray);
+  width: 10%;
+  height: 110%;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%) skew(-30deg);
+  animation: b_title 4s infinite ease;
+  background-color: var(--color_white);
+}
+
+.sec2 h2.on span::before {
   display: none;
 }
 
-.sec2 h2 .b2 {
-  animation-delay: 0.3s;
-}
-
-.sec2 h2 .b3 {
-  animation-delay: 0.6s;
-}
-
-@keyframes title_b {
+@keyframes b_title {
   0% {
-    transform: scale(1);
+    right: 110%;
     opacity: 0.4;
   }
+  20% {
+    right: -45%;
+    opacity: 1;
+  }
   100% {
-    transform: scale(1.5);
-    opacity: 0;
+    right: -45%;
+    opacity: 1;
   }
 }
 
@@ -771,28 +847,26 @@ section {
 }
 
 .sec3 h2 {
-  /* display: inline-block; */
-  font-size: var(--f_size_H1_48pt);
-  font-family: var(--font_Line);
-  color: var(--color_white);
   position: absolute;
   bottom: 25%;
-  right: 6.9%;
-  z-index: 10;
+  right: 4.65%;
+  width: 250px;
+  height: 250px;
   cursor: pointer;
+  transform: rotate(-45deg);
 }
 
 .sec3 h2::before {
   content: "";
-  width: 120%;
-  height: 250%;
+  width: 100%;
+  height: 100%;
   background-color: var(--color_main02);
   border: 1px solid #4dbf24;
   border-radius: 10%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%);
   z-index: -1;
 }
 
@@ -804,56 +878,91 @@ section {
   position: absolute;
   top: 50%;
   left: 25%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(-135deg);
   transition: 0.5s;
   z-index: -3;
-  animation: xmark 3s infinite;
+  /* animation: xmark2 3s infinite; */
 }
 
 .sec3 h2.on::after {
-  top: -100%;
-  left: -20%;
+  top: -20%;
+  left: 40%;
 }
 
 .sec3 h2:hover::after {
   color: var(--color_main02);
 }
 
-.sec3 h2 .g_ani {
-  /* border: 1px solid red; */
-  display: block;
-  background-color: var(--color_main02);
-  border-radius: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 250%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  animation: title_g 2s infinite;
-  z-index: -3;
-}
-
-.sec3 h2.on .g_ani {
-  display: none;
-}
-
-.sec3 h2 .g2 {
-  animation-delay: 0.3s;
-}
-
-.sec3 h2 .g3 {
-  animation-delay: 0.6s;
-}
-
-@keyframes title_g {
+@keyframes xmark2 {
   0% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
-    opacity: 0.4;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+  5% {
+    transform: translateY(-50%) rotate(-145deg);
+  }
+  15% {
+    transform: translateY(-50%) rotate(-125deg);
+  }
+  20% {
+    transform: translateY(-50%) rotate(-135deg);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
-    opacity: 0;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+}
+
+.sec3 h2 span:first-of-type {
+  font-size: var(--f_size_H1_48pt);
+  font-family: var(--font_Line);
+  color: var(--color_white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+
+.sec3 h2 span:last-of-type {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 10%;
+}
+
+.sec3 h2 span:last-of-type::after {
+  content: "";
+  border: 1px solid var(--color_light_gray);
+  border: 1px solid green;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  width: 150%;
+  height: 10%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  animation: b_title2 4s infinite ease;
+  background-color: var(--color_white);
+  z-index: 1;
+}
+
+@keyframes b_title2 {
+  0% {
+    top: -30%;
+    left: 50%;
+    opacity: 0.7;
+  }
+  20% {
+    top: 130%;
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: 130%;
+    left: 50%;
+    opacity: 1;
   }
 }
 
@@ -983,6 +1092,7 @@ section {
 }
 
 .sec3 .project_list div p {
+  border: 1px solid red;
   flex: 1;
 }
 
@@ -999,8 +1109,9 @@ section {
 
 .sec3 .project_list div p:first-of-type strong,
 .sec3 .project_list div p:last-of-type strong {
-  font-size: var(--f_size_H2_36pt);
+  font-size: var(--f_size_H3_24pt);
   font-family: var(--font_Line);
+  /* font-weight: bold; */
 }
 
 .sec3 .project_list div p:first-of-type span {
@@ -1316,7 +1427,10 @@ section {
   }
 
   .gnb {
-    transform: translateX(-50%) scale(0.5);
+    bottom: 1rem;
+    right: 1rem;
+    transform: scale(0.5);
+    transform-origin: right bottom;
   }
 
   .sec1 h1 {
@@ -1331,7 +1445,7 @@ section {
     font-size: var(--f_size_H3_24pt);
   }
 
-  .sec2 h2 {
+  .sec2 h2 span {
     font-size: var(--f_size_H3_24pt);
   }
 
@@ -1404,8 +1518,13 @@ section {
   }
 
   .sec3 h2 {
+    width: 100px;
+    height: 100px;
+    right: -2%;
+  }
+
+  .sec3 h2 span {
     font-size: var(--f_size_H3_24pt);
-    right: 1.2%;
   }
 
   .sec3 h2::after {
@@ -1413,8 +1532,8 @@ section {
   }
 
   .sec3 h2.on::after {
-    top: -100%;
-    left: -5%;
+    top: -20%;
+    left: 50%;
   }
 
   .sec3 .project_wrap::before {
@@ -1481,6 +1600,10 @@ section {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .sec3 .btn {
+    bottom: 15% !important;
   }
 
   .sec3 .btn.next {
