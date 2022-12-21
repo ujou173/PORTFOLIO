@@ -1800,7 +1800,7 @@ section {
 
 /* ------------------------------------------ 높이 반응형 ------------------------------------------ */
 
-@media (max-height: 700px) {
+@media (max-height: 800px) {
   .sec2 .education {
     padding: 1rem 0;
   }
