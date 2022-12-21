@@ -519,6 +519,24 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.3s;
+  z-index: 3;
+}
+
+.sec1 .power_icon img:first-of-type {
+  opacity: 1;
+}
+
+.sec1 .power_icon img:last-of-type {
+  opacity: 0;
+}
+
+.sec1 .power_icon:hover img:first-of-type {
+  opacity: 0;
+}
+
+.sec1 .power_icon:hover img:last-of-type {
+  opacity: 1;
 }
 
 .sec1 .power_icon::before {
@@ -539,10 +557,6 @@ section {
 
 .sec1 .power_icon:hover::before {
   opacity: 0.8;
-}
-
-.sec1 .power_icon:hover svg {
-  stroke: blue;
 }
 
 .sec1 .click {
