@@ -1293,6 +1293,11 @@ section {
   font-family: var(--font_Pretendard);
   z-index: 30;
   display: flex;
+  opacity: 0;
+}
+
+.sec3 .project_wrap > article.on + .list_pg {
+  opacity: 1;
 }
 
 .sec3 .list_pg .page {
@@ -1521,6 +1526,8 @@ section {
   border-right: 2px solid var(--color_text_black);
   animation: cursor 0.9s infinite steps(2);
 }
+
+/* ------------------------------------------ 넓이 반응형 ------------------------------------------ */
 
 @media (max-width: 420px) {
   .btn {
@@ -1763,7 +1770,8 @@ section {
   }
 
   .sec4 .qr_code {
-    width: 50%;
+    width: 25%;
+    bottom: 17%;
   }
 
   .sec4 .btn.prev {
@@ -1772,6 +1780,8 @@ section {
     right: 40%;
   }
 }
+
+/* ------------------------------------------ 높이 반응형 ------------------------------------------ */
 
 @media (max-height: 700px) {
   .sec2 .education {
@@ -1855,5 +1865,9 @@ section {
 
   .sec3 .p_btns {
     bottom: 3%;
+  }
+
+  .sec4 .qr_code {
+    bottom: 15%;
   }
 }
