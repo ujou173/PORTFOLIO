@@ -308,6 +308,8 @@ button:focus {
 }
 
 h1 {
+  /* border: 1px solid red; */
+  width: 20%;
   font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   color: var(--color_gray);
@@ -315,6 +317,8 @@ h1 {
   top: 2rem;
   left: 2rem;
   transition: opacity 0.3s;
+  word-break: keep-all;
+  line-height: 1;
 }
 
 h1.off {
@@ -576,7 +580,6 @@ section {
   left: 2.6%;
   cursor: pointer;
   z-index: 3;
-  /* overflow: hidden; */
 }
 
 .sec2 h2::before {
@@ -729,6 +732,7 @@ section {
   position: absolute;
   top: -15%;
   left: 70%;
+  z-index: -1;
 }
 
 .sec2 .sec2_desc::after {
@@ -740,6 +744,7 @@ section {
   position: absolute;
   top: 10%;
   left: -50%;
+  z-index: -1;
 }
 
 .sec2 h3 {
@@ -1399,6 +1404,7 @@ section {
 .sec4 h2 {
   font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
+  color: var(--color_white);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1501,6 +1507,7 @@ section {
   font-size: var(--f_size_H1_48pt);
   font-family: var(--font_Line);
   position: relative;
+  white-space: nowrap;
 }
 
 .sec4 h3::after {
@@ -1530,6 +1537,8 @@ section {
 
   h1 {
     font-size: var(--f_size_H3_24pt);
+    top: 1rem;
+    left: 1rem;
   }
 
   h1 span:last-of-type {
@@ -1540,8 +1549,22 @@ section {
     font-size: var(--f_size_H3_24pt);
   }
 
+  .sec1 .power_con {
+    top: 65%;
+  }
+
+  .sec1 .power_icon {
+    width: 100px;
+    height: 100px;
+  }
+
   .sec1 .click {
     font-size: var(--f_size_H3_24pt);
+  }
+
+  .sec2 h2 {
+    width: 22.229%;
+    left: 0.6%;
   }
 
   .sec2 h2 span:first-of-type {
@@ -1617,7 +1640,7 @@ section {
   .sec2 .skill li p {
     width: 100%;
     font-size: var(--f_size_b2_12pt);
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .sec2 .skill img {
@@ -1626,13 +1649,13 @@ section {
   }
 
   .sec2 .btn {
-    left: 4.5%;
+    left: 5%;
   }
 
   .sec3 h2 {
-    width: 100px;
-    height: 100px;
-    right: -2%;
+    width: 80px;
+    height: 80px;
+    right: 1.2%;
   }
 
   .sec3 h2 span:first-of-type {
@@ -1746,5 +1769,91 @@ section {
   .sec4 .btn.prev {
     width: 25px;
     height: 25px;
+    right: 40%;
+  }
+}
+
+@media (max-height: 700px) {
+  .sec2 .education {
+    padding: 1rem 0;
+  }
+
+  .sec2 .education span:last-of-type {
+    text-indent: 0px;
+    transform: translateX(10px);
+  }
+
+  .sec2 .sec2_desc {
+    justify-content: flex-start;
+    top: 21%;
+  }
+
+  .sec2 .skill {
+    padding-top: 0.5rem;
+  }
+
+  .sec2 .skill li > div {
+    width: 100%;
+    border: 1px solid var(--color_gray);
+    border-bottom: none;
+    background-color: var(--color_white);
+    position: relative;
+    display: flex;
+    padding: 0.5rem;
+    transition: 0.3s;
+  }
+
+  .sec2 .skill li.on > div {
+    background-color: var(--color_light_gray);
+  }
+
+  .sec2 .skill li > div::after {
+    content: "\f0d7";
+    font: var(--fa-font-solid);
+    font-size: 1.5em;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%) rotate(0);
+    color: var(--color_main01);
+    transition: 0.3s;
+  }
+
+  .sec2 .skill li.on > div::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .sec2 .skill li > p {
+    border-left: 1px solid var(--color_gray);
+    border-right: 1px solid var(--color_gray);
+    background-color: #e8f4fe;
+    max-height: 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    transition: max-height 0.7s, padding 0.5s 0.3s;
+  }
+
+  .sec2 .skill li:last-of-type > p {
+    border-bottom: 1px solid var(--color_gray);
+  }
+
+  .sec2 .skill li.on > p {
+    max-height: 100px;
+    padding: 0.5rem;
+    transition: max-height 0.7s, padding 0.3s;
+  }
+
+  .sec3 .project_list article {
+    padding-top: 0%;
+  }
+
+  .sec3 .list_pg {
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sec3 .p_btns {
+    bottom: 3%;
   }
 }

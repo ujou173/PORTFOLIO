@@ -742,3 +742,22 @@ function pgSlide(number) {
     }
   }
 }
+
+// 반응형 max-height 700일때 프로필 아코디언 메뉴
+const $skill = document.querySelectorAll(".sec2 .skill > li");
+const $tools = document.querySelectorAll(".sec2 .skill > li > div");
+
+function ToggleA() {
+  const skillText = this.parentNode;
+  $skill.forEach((s) => {
+    if (skillText == s) {
+      skillText.classList.toggle("on");
+      return;
+    }
+    s.classList.remove("on");
+  });
+}
+
+$tools.forEach(function (t) {
+  t.addEventListener("click", ToggleA);
+});
