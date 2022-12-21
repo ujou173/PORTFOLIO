@@ -1639,14 +1639,32 @@ section {
 
   .sec2 .education span:first-of-type {
     font-size: var(--f_size_H4_16pt);
+    text-indent: 15px;
   }
 
   .sec2 .education span:last-of-type {
     font-size: var(--f_size_b3_12pt);
+    text-indent: 0px;
+    transform: translateX(20px);
+  }
+
+  .sec2 .education span:first-of-type::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 5px;
+    top: calc(50% - 2px);
   }
 
   .sec2 .using_tool {
     font-size: var(--f_size_H4_16pt);
+    text-indent: 15px;
+  }
+
+  .sec2 .using_tool::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 5px;
+    top: calc(50% - 2px);
   }
 
   .sec2 .skill {
@@ -1806,7 +1824,6 @@ section {
   }
 
   .sec2 .education span:last-of-type {
-    text-indent: 0px;
     transform: translateX(10px);
   }
 
