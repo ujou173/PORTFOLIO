@@ -785,7 +785,7 @@ section {
   border-radius: 15%;
   background-color: #0070c9;
   position: absolute;
-  top: 50%;
+  top: calc(50% - 4px);
   left: 0;
   transform: translateY(-50%);
 }
@@ -793,19 +793,35 @@ section {
 .sec2 .education span:last-of-type {
   font-size: var(--f_size_b1_24pt);
   font-family: var(--font_Pretendard);
+  text-indent: 40px;
 }
 
 .sec2 .using_tool {
   font-size: var(--f_size_H2_36pt);
   font-family: var(--font_Line);
   color: var(--color_main01);
-  padding-bottom: 1rem;
+  position: relative;
+  text-indent: 30px;
+  /* border: 1px solid red; */
+}
+
+.sec2 .using_tool::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 15%;
+  background-color: #0070c9;
+  position: absolute;
+  top: calc(50% - 4px);
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .sec2 .skill {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  padding-top: 1rem;
 }
 
 .sec2 .skill li {
