@@ -92,18 +92,6 @@ button:focus {
   height: 100%;
 }
 
-/* .gnb ul::before {
-  content: "";
-  width: calc(100% - 3.5rem);
-  height: 1px;
-  background-color: var(--color_gray);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-} */
-
 .gnb li:not(.map) {
   position: absolute;
   /* padding: 1rem; */

@@ -148,7 +148,6 @@ const $power_con = document.querySelector(".power_con");
 
 function Sec1ToSec2() {
   now = 1;
-  console.log(now);
   $power.classList.add("on");
   $line.classList.add("on");
   setTimeout(function () {
@@ -179,7 +178,6 @@ function Sec1ToSec2() {
 const $sec2_prev = document.querySelector(".sec1_1 .prev");
 function Sec2ToSec1() {
   now = 0;
-  console.log(now);
   // sec2의 프로필이 출력중일 경우 닫고 처음으로 돌아감
   if ($sec2_desc.classList.contains("on")) {
     $profile.classList.remove("on");
@@ -253,7 +251,6 @@ function Sec2ToSec1() {
 const $sec2_next = document.querySelector(".sec1_1 .next");
 function Sec2ToSec3() {
   now = 2;
-  console.log(now);
   if ($sec2_desc.classList.contains("on")) {
     // sec2 프로필이 출력중일 경우 프로필을 닫고 원상 복귀 후 이동
     $profile.classList.remove("on");
@@ -339,7 +336,6 @@ $project.addEventListener("click", function () {
 const $sec3_prev = document.querySelector(".sec2_1 > .prev");
 function Sec3ToSec2() {
   now = 1;
-  console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
@@ -384,7 +380,6 @@ function Sec3ToSec2() {
 const $sec3_next = document.querySelector(".sec2_1 > .next");
 function Sec3ToSec4() {
   now = 3;
-  console.log(now);
   if ($sec3_desc.classList.contains("on")) {
     $projectWrap.classList.remove("on");
     $sec3_desc.classList.remove("on");
@@ -471,7 +466,6 @@ function Sec3ToSec4() {
 const $sec4_prev = document.querySelector(".sec4 > .prev");
 function Sec4ToSec3() {
   now = 2;
-  console.log(now);
   $bg.style.cssText = `
   transform: translate(0%, -70.414%);
       transition: 0.3s;
@@ -629,14 +623,11 @@ function nextSl() {
 
   if (pgIdx < 2) {
     pgIdx = pgIdx + 1;
-    console.log(pgIdx);
   } else {
     pgIdx = 0;
-    console.log(pgIdx);
   }
 
   $pg[pgIdx].classList.add("on");
-  console.log($pg[pgIdx]);
 }
 
 function prevSl() {
@@ -654,14 +645,11 @@ function prevSl() {
 
   if (pgIdx > 0) {
     pgIdx = pgIdx - 1;
-    console.log(pgIdx);
   } else {
     pgIdx = 2;
-    console.log(pgIdx);
   }
 
   $pg[pgIdx].classList.add("on");
-  console.log($pg[pgIdx]);
 }
 
 // pagenation 현재 페이지 표시
@@ -677,14 +665,13 @@ $pg.forEach(function (n, nIdx) {
   n.addEventListener("click", function () {
     pgSlide(nIdx);
     pgActive(nIdx);
-    console.log(nIdx);
+    pgIdx = nIdx;
   });
 });
 
 // 번호 클릭시 해당 슬라이드로 스와이프 되면서 이동
 function pgSlide(number) {
   if ($pg[0].classList.contains("on")) {
-    // console.log("1번이 on 일때");
     if (number == 1) {
       $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
       setTimeout(() => {
@@ -703,7 +690,6 @@ function pgSlide(number) {
       }, 0);
     }
   } else if ($pg[1].classList.contains("on")) {
-    // console.log(2번이 on 일때");
     if (number == 0) {
       firstList = $ProjectCon.firstElementChild;
       lastList = $ProjectCon.lastElementChild;
@@ -722,7 +708,6 @@ function pgSlide(number) {
       lastList = $ProjectCon.lastElementChild;
     }
   } else if ($pg[2].classList.contains("on")) {
-    // console.log("3번이 on 일때");
     if (number == 0) {
       $ProjectCon.style.cssText = `margin-left: -100%; transition: 0.5s`;
       setTimeout(() => {
