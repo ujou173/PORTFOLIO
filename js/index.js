@@ -106,7 +106,7 @@ function gnbMove() {
 //-----------------------------------섹션 간 이동------------------------------------------------
 
 // sec2 on/off -----------------------------------------
-const $profile = document.querySelector(".sec2 > h2");
+const $profile = document.querySelector(".sec1_1 > h2");
 const $sec2_desc = document.querySelector(".sec2_desc");
 $profile.addEventListener("click", function () {
   if ($sec2_desc.classList.contains("on")) {
@@ -176,7 +176,7 @@ function Sec1ToSec2() {
 // sec1에서 sec2로 이동 -------------------------------------
 
 // sec2에서 sec1로 이동 -------------------------------------
-const $sec2_prev = document.querySelector(".sec2 .prev");
+const $sec2_prev = document.querySelector(".sec1_1 .prev");
 function Sec2ToSec1() {
   now = 0;
   console.log(now);
@@ -250,7 +250,7 @@ function Sec2ToSec1() {
 // sec2에서 sec1로 이동 -------------------------------------
 
 // sec2에서 sec3로 이동 -------------------------------------
-const $sec2_next = document.querySelector(".sec2 .next");
+const $sec2_next = document.querySelector(".sec1_1 .next");
 function Sec2ToSec3() {
   now = 2;
   console.log(now);
@@ -295,7 +295,7 @@ function Sec2ToSec3() {
 // sec2에서 sec3로 이동 -------------------------------------
 
 // sec3 on/off -------------------------------------------------
-const $project = document.querySelector(".sec3 > h2");
+const $project = document.querySelector(".sec2_1 > h2");
 const $projectWrap = document.querySelector(".sec3 .project_wrap");
 const $sec3_desc = document.querySelector(".sec3 .project_wrap > article");
 $project.addEventListener("click", function () {
@@ -336,7 +336,7 @@ $project.addEventListener("click", function () {
 // sec3 on/off -------------------------------------------------
 
 // sec3에서 sec2로 이동 -------------------------------------
-const $sec3_prev = document.querySelector(".sec3 > .prev");
+const $sec3_prev = document.querySelector(".sec2_1 > .prev");
 function Sec3ToSec2() {
   now = 1;
   console.log(now);
@@ -381,7 +381,7 @@ function Sec3ToSec2() {
 // sec3에서 sec2로 이동 -------------------------------------
 
 // sec3에서 sec4 이동 --------------------------------------------
-const $sec3_next = document.querySelector(".sec3 > .next");
+const $sec3_next = document.querySelector(".sec2_1 > .next");
 function Sec3ToSec4() {
   now = 3;
   console.log(now);
