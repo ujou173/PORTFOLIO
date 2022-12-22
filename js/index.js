@@ -746,3 +746,33 @@ function ToggleA() {
 $tools.forEach(function (t) {
   t.addEventListener("click", ToggleA);
 });
+
+// sec1 bug 이스터에그
+const $bug = document.querySelector(".sec1 .bug");
+const $errorCon = document.querySelector(".sec1 .error_con");
+const $error = document.getElementsByClassName("error");
+console.log($error);
+let ei = 0;
+
+$bug.addEventListener("click", function () {
+  $errorCon.style.display = "block";
+  let interval = setInterval(function () {
+    if (ei < 11) {
+      $error[ei].style.display = "flex";
+      ei++;
+    } else {
+      ei = 0;
+      clearInterval(interval);
+    }
+  }, 100);
+  setTimeout(() => {
+    bugClear();
+  }, 2500);
+});
+
+function bugClear() {
+  $errorCon.style.display = "none";
+  for (ab = 0; ab < 11; ab++) {
+    $error[ab].style.display = "none";
+  }
+}
