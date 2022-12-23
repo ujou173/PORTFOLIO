@@ -633,10 +633,18 @@ section {
 }
 
 .sec1 .error {
-  display: none;
+  display: flex;
   position: absolute;
   border: 1px solid var(--color_gray);
   width: 550px;
+  transform: scale(0);
+  transition: 0.7s;
+}
+
+.sec1 .error.on {
+  display: flex;
+  transform: scale(1);
+  transition: 0.7s;
 }
 
 .sec1 .e1 {
@@ -1500,6 +1508,8 @@ section {
   cursor: pointer;
   font-size: var(--f_size_b2_16pt);
   font-family: var(--font_Pretendard);
+  color: var(--color_text_black);
+  text-align: center;
 }
 
 .sec3 .list_pg .page::before {
@@ -1854,7 +1864,7 @@ section {
   }
 
   .sec3 .project_list article {
-    padding-top: 40%;
+    padding-top: 20%;
   }
 
   .sec3 .project_list div p {
@@ -1889,7 +1899,7 @@ section {
   .sec3 .p_btns {
     flex-direction: row;
     top: auto;
-    bottom: 7%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
   }

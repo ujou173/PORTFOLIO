@@ -750,29 +750,30 @@ $tools.forEach(function (t) {
 // sec1 bug 이스터에그
 const $bug = document.querySelector(".sec1 .bug");
 const $errorCon = document.querySelector(".sec1 .error_con");
-const $error = document.getElementsByClassName("error");
-console.log($error);
+const $error = document.querySelectorAll(".error");
 let ei = 0;
 
 $bug.addEventListener("click", function () {
   $errorCon.style.display = "block";
   let interval = setInterval(function () {
     if (ei < 11) {
-      $error[ei].style.display = "flex";
+      $error[ei].classList.add("on");
       ei++;
     } else {
-      ei = 0;
       clearInterval(interval);
     }
-  }, 100);
+  }, 150);
   setTimeout(() => {
-    bugClear();
+    let interval2 = setInterval(function () {
+      if (ei > 0) {
+        $error[ei - 1].classList.remove("on");
+        ei--;
+      } else {
+        clearInterval(interval2);
+      }
+    }, 100);
   }, 2500);
+  setTimeout(() => {
+    $errorCon.style.display = "none";
+  }, 5000);
 });
-
-function bugClear() {
-  $errorCon.style.display = "none";
-  for (ab = 0; ab < 11; ab++) {
-    $error[ab].style.display = "none";
-  }
-}
