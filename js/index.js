@@ -18,7 +18,7 @@ let now = 0;
 // 목적지 설정 변수
 let dest = 0;
 
-// gnb 현재 섹션 표시
+// gnb 현재 섹션 표시 함수
 function gnbActive(gnbNum) {
   $gnbList.forEach(function (a) {
     a.classList.remove("on");
@@ -26,7 +26,7 @@ function gnbActive(gnbNum) {
   $gnbList[gnbNum].classList.add("on");
 }
 
-// 도착지 설정
+// 도착지 설정 함수
 function destination(j) {
   if (j.classList.contains("circle")) {
     dest = 0;
@@ -141,7 +141,7 @@ $profile.addEventListener("click", function () {
     $sec2_desc.classList.add("on");
   }
 });
-// sec2 on/off -----------------------------------------
+// sec2 on/off END -----------------------------------------
 
 // sec1에서 sec2로 이동 -------------------------------------
 const $power_con = document.querySelector(".power_con");
@@ -172,7 +172,7 @@ function Sec1ToSec2() {
     gnbActive(1);
   }, 1120);
 }
-// sec1에서 sec2로 이동 -------------------------------------
+// sec1에서 sec2로 이동 END -------------------------------------
 
 // sec2에서 sec1로 이동 -------------------------------------
 const $sec2_prev = document.querySelector(".sec1_1 .prev");
@@ -245,7 +245,7 @@ function Sec2ToSec1() {
     }, 900);
   }
 }
-// sec2에서 sec1로 이동 -------------------------------------
+// sec2에서 sec1로 이동 END -------------------------------------
 
 // sec2에서 sec3로 이동 -------------------------------------
 const $sec2_next = document.querySelector(".sec1_1 .next");
@@ -289,7 +289,7 @@ function Sec2ToSec3() {
     gnbActive(2);
   }
 }
-// sec2에서 sec3로 이동 -------------------------------------
+// sec2에서 sec3로 이동 END -------------------------------------
 
 // sec3 on/off -------------------------------------------------
 const $project = document.querySelector(".sec2_1 > h2");
@@ -330,7 +330,7 @@ $project.addEventListener("click", function () {
   `;
   }
 });
-// sec3 on/off -------------------------------------------------
+// sec3 on/off END -------------------------------------------------
 
 // sec3에서 sec2로 이동 -------------------------------------
 const $sec3_prev = document.querySelector(".sec2_1 > .prev");
@@ -374,7 +374,7 @@ function Sec3ToSec2() {
     gnbActive(1);
   }
 }
-// sec3에서 sec2로 이동 -------------------------------------
+// sec3에서 sec2로 이동 END -------------------------------------
 
 // sec3에서 sec4 이동 --------------------------------------------
 const $sec3_next = document.querySelector(".sec2_1 > .next");
@@ -460,7 +460,7 @@ function Sec3ToSec4() {
     $sec4TypingDiv.classList.add("on");
   }
 }
-// sec3에서 sec4 이동 --------------------------------------------
+// sec3에서 sec4 이동 END --------------------------------------------
 
 // sec4에서 sec3 이동 --------------------------------------------
 const $sec4_prev = document.querySelector(".sec4 > .prev");
@@ -497,8 +497,9 @@ function Sec4ToSec3() {
     `;
   }, 920);
 }
-// sec4에서 sec3 이동 --------------------------------------------
+// sec4에서 sec3 이동 END --------------------------------------------
 
+// sec 이동 버튼 -------------------------------------------------
 $power_con.addEventListener("click", function () {
   Sec1ToSec2();
 });
@@ -517,6 +518,7 @@ $sec3_next.addEventListener("click", function () {
 $sec4_prev.addEventListener("click", function () {
   Sec4ToSec3();
 });
+// sec 이동 버튼 END -------------------------------------------------
 
 // sec1 타이핑 텍스트
 const $typingText = document.querySelector(".typing_text");
@@ -526,7 +528,7 @@ const letters = ["Hello, World!"];
 const typingSpeed = 60;
 let i = 0;
 
-// 타이핑 효과
+// sec1 타이핑 효과
 const typing = async function () {
   const letter = letters[i].split("");
 
@@ -539,7 +541,7 @@ const typing = async function () {
   remove();
 };
 
-// 타이핑 지우는 효과
+// sec1 타이핑 지우는 효과
 const remove = async function () {
   const letter = letters[i].split("");
 
@@ -603,8 +605,10 @@ const $PgPrev = document.querySelector(".pg_prev");
 const $PgNext = document.querySelector(".pg_next");
 const $pg = document.querySelectorAll(".page");
 
+// 현재 리스트 확인용 변수
 let pgIdx = 0;
 
+// prev & Next 버튼 함수
 $PgNext.addEventListener("click", nextSl);
 $PgPrev.addEventListener("click", prevSl);
 
@@ -617,6 +621,7 @@ function nextSl() {
   firstList = $ProjectCon.firstElementChild;
   lastList = $ProjectCon.lastElementChild;
 
+  // Next 버튼 클릭 시 pagenation도 함께 이동
   $pg.forEach(function (item) {
     item.classList.remove("on");
   });
@@ -652,7 +657,7 @@ function prevSl() {
   $pg[pgIdx].classList.add("on");
 }
 
-// pagenation 현재 페이지 표시
+// pagenation 클릭시 그 페이지의 pagenation을 active
 function pgActive(pgNum) {
   $pg.forEach(function (k) {
     k.classList.remove("on");
@@ -660,7 +665,7 @@ function pgActive(pgNum) {
   $pg[pgNum].classList.add("on");
 }
 
-// pg 클릭 시 해당 페이지 active
+// pagenation 클릭 시 해당 페이지로 이동 동작
 $pg.forEach(function (n, nIdx) {
   n.addEventListener("click", function () {
     pgSlide(nIdx);
@@ -669,7 +674,7 @@ $pg.forEach(function (n, nIdx) {
   });
 });
 
-// 번호 클릭시 해당 슬라이드로 스와이프 되면서 이동
+// pagenation 클릭 시 해당 페이지로 스와이프 시키는 함수
 function pgSlide(number) {
   if ($pg[0].classList.contains("on")) {
     if (number == 1) {
@@ -728,7 +733,7 @@ function pgSlide(number) {
   }
 }
 
-// 반응형 max-height 700일때 프로필 아코디언 메뉴
+// 반응형, max-height 800일때 프로필 아코디언 메뉴
 const $skill = document.querySelectorAll(".sec2 .skill > li");
 const $tools = document.querySelectorAll(".sec2 .skill > li > div");
 
