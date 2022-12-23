@@ -753,12 +753,12 @@ $tools.forEach(function (t) {
 });
 
 // sec1 bug 이스터에그
-const $bug = document.querySelector(".sec1 .bug");
+const $bug = document.querySelectorAll(".bug");
 const $errorCon = document.querySelector(".sec1 .error_con");
 const $error = document.querySelectorAll(".error");
 let ei = 0;
 
-$bug.addEventListener("click", function () {
+$bug[0].addEventListener("click", function () {
   $errorCon.style.display = "block";
   let interval = setInterval(function () {
     if (ei < 11) {
@@ -777,8 +777,17 @@ $bug.addEventListener("click", function () {
         clearInterval(interval2);
       }
     }, 100);
-  }, 2500);
+  }, 2800);
   setTimeout(() => {
     $errorCon.style.display = "none";
-  }, 5000);
+  }, 5100);
+});
+
+// sec4 bug bubble 애니메이션(미완)
+const bubble = document.querySelectorAll(".bubble");
+$bug[2].addEventListener("click", function () {
+  bubble.classList.add("on");
+  setTimeout(() => {
+    bubble.classList.remove("on");
+  }, 2000);
 });
