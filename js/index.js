@@ -644,6 +644,7 @@ function prevSl() {
     $ProjectCon.style.cssText = `margin-left = 0; transition: 0.5s`;
   }, 0);
 
+  // Prev 버튼 클릭 시 pagenation도 함께 이동
   $pg.forEach(function (item3) {
     item3.classList.remove("on");
   });
