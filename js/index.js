@@ -791,14 +791,12 @@ let bi = 0;
 let bc = 0;
 
 $contact.addEventListener("click", function () {
-  $bug[2].classList.toggle("on");
+  $bug[3].classList.toggle("on");
   if (bc == 0) {
     let interval5 = setInterval(function () {
-      console.log("반복시작");
       if (bi < 8) {
         $bubble[bi].classList.add("on");
         bi++;
-        console.log(bi);
       } else {
         bc = 1;
         clearInterval(interval5);
