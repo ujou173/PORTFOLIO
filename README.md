@@ -18,6 +18,6 @@
 + Next/Prev 버튼과 pagenation이 연동되는 Slide
 + 곡선(path)를 따라 물체가 이동하는 애니메이션
 
-##이미지
+## 이미지
 
 ![그림1 copy](https://user-images.githubusercontent.com/117888227/209626017-74f5bc96-cbbf-40e6-ada4-0483adac0016.png)
