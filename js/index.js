@@ -768,7 +768,7 @@ $bug[0].addEventListener("click", function () {
     } else {
       clearInterval(interval);
     }
-  }, 150);
+  }, 100);
   setTimeout(() => {
     let interval2 = setInterval(function () {
       if (ei > 0) {
@@ -777,11 +777,11 @@ $bug[0].addEventListener("click", function () {
       } else {
         clearInterval(interval2);
       }
-    }, 100);
-  }, 2800);
+    }, 70);
+  }, 2500);
   setTimeout(() => {
     $errorCon.style.display = "none";
-  }, 5100);
+  }, 4800);
 });
 
 // sec4 bug bubble 애니메이션
