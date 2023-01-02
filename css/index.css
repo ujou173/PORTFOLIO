@@ -1137,9 +1137,9 @@ section {
 
 .sec3 .project_wrap {
   width: 65%;
-  height: 78%;
+  height: 85%;
   position: absolute;
-  top: 17%;
+  top: 11%;
   left: 10%;
 }
 
@@ -1181,6 +1181,8 @@ section {
   position: absolute;
   opacity: 0;
   transition: 1s;
+  /* border: 1px solid red; */
+  padding-top: 2rem;
 }
 
 .sec3 .project_wrap > article.on {
@@ -1195,9 +1197,9 @@ section {
 }
 
 .sec3 .project_list {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
   width: calc(100% / 3);
   position: relative;
 }
@@ -1208,6 +1210,7 @@ section {
 }
 
 .sec3 .project_list img {
+  padding-top: 1rem;
   width: 100%;
 }
 
@@ -1220,7 +1223,7 @@ section {
   width: 20%;
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 45%;
 }
 
 .sec3 .p2 .project_img_01 {
@@ -1257,43 +1260,47 @@ section {
 .sec3 .project_list .p_desc {
   display: flex;
   flex: 1;
-  padding-top: 1rem;
 }
 
-.sec3 .project_list div p {
-  flex: 1;
-}
-
-.sec3 .project_list div p:first-of-type {
+.sec3 .project_list .p_desc_title {
   line-height: 1.4;
+  width: 30%;
+  white-space: nowrap;
+  position: absolute;
+  top: 44%;
+  right: 0;
 }
 
-.sec3 .project_list div p:last-of-type {
+.sec3 .project_list .p_desc_desc {
   font-size: var(--f_size_b1_24pt);
   font-family: var(--font_Pretendard);
   line-height: 1.4;
+  padding-top: 3rem;
+  width: 68%;
   word-break: keep-all;
+  /* border: 1px solid blue; */
 }
 
-.sec3 .project_list div p:first-of-type strong,
-.sec3 .project_list div p:last-of-type strong {
+.sec3 .project_list .p_desc_title strong,
+.sec3 .project_list .p_desc_desc strong,
+.sec3 .project_list .p_desc .p_desc_style strong {
   font-size: var(--f_size_H3_24pt);
   font-family: var(--font_Line);
   font-weight: bold;
   color: var(--color_text_black);
 }
 
-.sec3 .project_list div p:first-of-type span {
+.sec3 .project_list .p_desc_title span {
   font-size: var(--f_size_b1_24pt);
   font-family: var(--font_Pretendard);
 }
 
-.sec3 .project_list div p:last-of-type span {
+.sec3 .project_list .p_desc_desc span {
   position: relative;
   white-space: nowrap;
 }
 
-.sec3 .project_list div p:last-of-type span::before {
+.sec3 .project_list .p_desc_desc span::before {
   content: "";
   width: 100%;
   height: 70%;
@@ -1304,20 +1311,120 @@ section {
   z-index: -1;
 }
 
-.sec3 .p3 .p_desc p:first-of-type span:last-of-type {
+.sec3 .p3 .p_desc .p_desc_title span:last-of-type {
   display: inline-block;
   position: absolute;
   transform: translate(3%, 0);
 }
 
+.sec3 .project_list .p_desc .p_desc_style {
+  flex: 1;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  position: relative;
+  font-size: var(--f_size_b2_16pt);
+  font-weight: var(--font_Pretendard);
+}
+.sec3 .project_list .p_desc .p_desc_style .st_01,
+.sec3 .project_list .p_desc .p_desc_style .st_02,
+.sec3 .project_list .p_desc .p_desc_style .st_03 {
+  position: relative;
+  top: 25%;
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+
+.sec3 .project_list .p_desc .p_desc_style .st_01::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.sec3 .p1 .p_desc .p_desc_style .st_01::after {
+  background-color: #45156e;
+}
+
+.sec3 .p2 .p_desc .p_desc_style .st_01::after {
+  background-color: #bb0712;
+}
+
+.sec3 .p3 .p_desc .p_desc_style .st_01::after {
+  background-color: #ff6600;
+}
+
+.sec3 .project_list .p_desc .p_desc_style .st_02::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.sec3 .p1 .p_desc .p_desc_style .st_02::after {
+  background-color: #ffc700;
+}
+
+.sec3 .p2 .p_desc .p_desc_style .st_02::after {
+  background-color: #6e0f16;
+}
+
+.sec3 .p3 .p_desc .p_desc_style .st_02::after {
+  background-color: #de9417;
+}
+
+.sec3 .project_list .p_desc .p_desc_style .st_03::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.sec3 .p1 .p_desc .p_desc_style .st_03::after {
+  background-color: #f9f9f9;
+  border: 1px solid var(--color_light_gray);
+}
+
+.sec3 .p2 .p_desc .p_desc_style .st_03::after {
+  background-color: #f8eee8;
+  border: 1px solid var(--color_light_gray);
+}
+
+.sec3 .p3 .p_desc .p_desc_style .st_03::after {
+  background-color: #f4faf6;
+  border: 1px solid var(--color_light_gray);
+}
+
+.sec3 .project_list .p_desc .p_desc_style p {
+  position: relative;
+  top: 30%;
+}
+
+.sec3 .project_list .p_desc .p_desc_style p span {
+  font-size: var(--f_size_H4_16pt);
+  font-family: var(--font_Line);
+  font-weight: bold;
+}
+
 .sec3 .p_btns {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-between;
   align-items: flex-start;
   position: absolute;
-  top: 32%;
-  left: 76%;
+  top: 30%;
+  left: 69.3%;
 }
 
 .sec3 .p_btns a {
@@ -1336,6 +1443,7 @@ section {
   cursor: pointer;
   overflow: hidden;
   text-align: center;
+  margin: 0 0.5rem;
 }
 
 .sec3 .p_btns a::before {
@@ -1358,14 +1466,14 @@ section {
 }
 
 .sec3 .project_wrap .list_pg {
-  /* border: 1px solid red; */
   position: absolute;
-  top: 0;
+  top: 5%;
   left: 0;
   transform: translateY(-200%);
   z-index: 30;
   display: flex;
   opacity: 0;
+  /* border: 1px solid red; */
 }
 
 .sec3 .project_wrap > article.on + .list_pg {
